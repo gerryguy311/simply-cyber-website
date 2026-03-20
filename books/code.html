@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Books | Simply Cyber</title>
+<!-- Google Fonts: Montserrat, Plus Jakarta Sans, Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#e7eff9",
+              "on-error": "#ffffff",
+              "surface-tint": "#0061a6",
+              "on-surface-variant": "#414751",
+              "background": "#f7f9ff",
+              "surface-variant": "#dbe3ee",
+              "outline-variant": "#c1c7d2",
+              "primary-fixed": "#d2e4ff",
+              "on-secondary-fixed": "#141c24",
+              "on-tertiary-fixed-variant": "#930002",
+              "tertiary-fixed-dim": "#ffb4a8",
+              "on-secondary-fixed-variant": "#3f4850",
+              "surface-container-highest": "#dbe3ee",
+              "primary": "#005796",
+              "on-primary-container": "#e9f1ff",
+              "error-container": "#ffdad6",
+              "surface": "#f7f9ff",
+              "inverse-primary": "#a0caff",
+              "on-primary-fixed-variant": "#00497e",
+              "surface-bright": "#f7f9ff",
+              "secondary-fixed-dim": "#bfc7d2",
+              "on-tertiary-fixed": "#410000",
+              "on-background": "#141c24",
+              "tertiary-fixed": "#ffdad5",
+              "on-primary": "#ffffff",
+              "inverse-surface": "#293139",
+              "tertiary-container": "#d9140e",
+              "primary-container": "#1d70b8",
+              "surface-container-low": "#edf4ff",
+              "on-primary-fixed": "#001c37",
+              "on-tertiary": "#ffffff",
+              "inverse-on-surface": "#e9f1fc",
+              "surface-container-lowest": "#ffffff",
+              "error": "#ba1a1a",
+              "surface-dim": "#d3dbe5",
+              "primary-fixed-dim": "#a0caff",
+              "on-secondary-container": "#5d656e",
+              "outline": "#717782",
+              "tertiary": "#ae0002",
+              "on-surface": "#141c24",
+              "on-error-container": "#93000a",
+              "surface-container-high": "#e1e9f4",
+              "secondary-fixed": "#dbe3ee",
+              "secondary": "#575f68",
+              "on-tertiary-container": "#ffece9",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#dbe3ee"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "montserrat": ["Montserrat"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body { font-family: 'Montserrat', sans-serif; }
+      .glass-nav { backdrop-filter: blur(20px); }
+      .tonal-shift { transition: background-color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#ffffff]/70 backdrop-blur-20px shadow-sm">
+<nav class="flex justify-between items-center px-8 h-16 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" data-icon="shield">shield</span>
+</div>
+<span class="text-xl font-extrabold text-[#141c24] font-['Plus_Jakarta_Sans'] tracking-tight">Simply Cyber</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#141c24]/60 font-bold hover:text-[#1d70b8] transition-colors duration-200" href="#">Education</a>
+<a class="text-[#141c24]/60 font-bold hover:text-[#1d70b8] transition-colors duration-200" href="#">Courses</a>
+<a class="text-[#1d70b8] font-bold border-b-2 border-[#1d70b8] pb-1" href="#">Books</a>
+<a class="text-[#141c24]/60 font-bold hover:text-[#1d70b8] transition-colors duration-200" href="#">Community</a>
+<a class="text-[#141c24]/60 font-bold hover:text-[#1d70b8] transition-colors duration-200" href="#">About</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="scale-95 active:scale-90 transition-transform bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2 rounded-lg font-bold text-sm shadow-md">
+                    Join Now
+                </button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-20">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 mb-20">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 bg-surface-container-highest px-3 py-1 rounded-full mb-6">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-[0.65rem] font-bold tracking-widest uppercase text-on-surface-variant font-label">Official Resources</span>
+</div>
+<h1 class="text-6xl font-extrabold font-headline text-on-surface leading-[1.1] mb-6 tracking-tight">
+                    Authoritative Guides by <span class="text-primary-container">Gerald Auger, PhD</span>
+</h1>
+<p class="text-lg text-on-surface-variant font-body leading-relaxed max-w-2xl">
+                    Deep-dive into the technical and strategic world of cybersecurity with comprehensive literature designed to elevate your professional expertise and defense capabilities.
+                </p>
+</div>
+</section>
+<!-- Featured Book (Bento Style) -->
+<section class="max-w-7xl mx-auto px-8 mb-20">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col lg:flex-row min-h-[500px]">
+<div class="lg:w-1/2 relative bg-surface-container-high overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="Modern dark book cover featuring abstract digital patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZceMS3qKpHdNBm7Ux8DEwFmjdVOQ8q7XhzQZCVt6PSHDKsmgI_vQakcRBRAhGuEFBVXJJZklAPrIoGWf0Dxoka8d0yR1W_MRnRKhOBKQhzwSm20oEoxhegW0M-TXulnASv7bmrqroH2U-A36MRwwr_pluXYFnpYj_CkN_wE9Oa4Pe0fJhVliljOqOvC62-Ik-jOi7V6Xl3PxKtEkWh1K90Ql5g3meJAh6ld6oOjalLBO3s48HIvy144ham2BrfWQMtYWrnIGeqjVv"/>
+<div class="absolute inset-0 bg-gradient-to-r from-on-surface/20 to-transparent"></div>
+</div>
+<div class="lg:w-1/2 p-12 flex flex-col justify-center">
+<div class="mb-8">
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Newest Release</span>
+<h2 class="text-4xl font-extrabold font-headline text-on-surface mb-4 leading-tight">The Coming Wave: Technology, Power, and the Twenty-first Century's Greatest Dilemma</h2>
+<p class="text-on-surface-variant font-body leading-relaxed mb-8">
+                            An essential exploration of the transformative power of AI and synthetic biology. Mustafa Suleyman, co-founder of DeepMind, provides a definitive roadmap for navigating the unprecedented risks and rewards of the next decade's technological revolution.
+                        </p>
+<div class="flex flex-wrap gap-4 items-center">
+<span class="flex items-center gap-2 text-sm font-semibold text-on-surface">
+<span class="material-symbols-outlined text-primary-container" data-icon="person">person</span>
+                                Mustafa Suleyman &amp; Michael Bhaskar
+                            </span>
+<span class="text-outline-variant">|</span>
+<span class="flex items-center gap-2 text-sm font-semibold text-on-surface">
+<span class="material-symbols-outlined text-primary-container" data-icon="calendar_today">calendar_today</span>
+                                September 2023
+                            </span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="bg-primary-container text-white px-8 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transition-all scale-95 active:scale-90">
+                            Buy on Amazon
+                        </button>
+<button class="border border-outline-variant px-8 py-3 rounded-lg font-bold hover:bg-surface-container-low transition-all">
+                            View Abstract
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Grid of Books -->
+<section class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Book Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden group border-b-4 border-transparent hover:border-primary-container transition-all">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Professional cybersecurity book cover on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYdNoef9Mxx3sZK48zr1ZFAVOSfnmVUUk5051C6TP9hOgQgW6jY0XfnKz86FQOAtqUtATiiDaz9k7-dpOCG58Jm1cXu2buoaHb54papZF7IVedRjCQkWSGzwi2mKgiOfotU8EfNsQnp_7oiq5pQDOhqEa7fD2e-oyv5odoPYwQWiz4pT39voDk7xNux75TfZlFNtwCkLgBCRAAcFABEkXGzsjdZdhg08zY5WoK6tMy2HrcKSg_CK1W_WUkR4v3y5BHSxrSaix5DLIt"/>
+</div>
+<div class="p-8">
+<h3 class="text-xl font-bold font-headline mb-2 text-on-surface leading-snug">Cybersecurity Blue Team Toolkit</h3>
+<p class="text-sm font-semibold text-primary mb-4">Gerald Auger, PhD</p>
+<p class="text-on-surface-variant text-sm font-body line-clamp-3 mb-6">
+                            A practical, hands-on guide for security professionals to master defensive strategies, incident response, and threat detection in modern enterprise environments.
+                        </p>
+<a class="inline-flex items-center text-primary-container font-bold text-sm gap-2 hover:underline" href="#">
+                            Learn More
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Book Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden group border-b-4 border-transparent hover:border-primary-container transition-all">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Digital security textbook with technical graphics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDS41aEP71xvwxFpoIRUBSIIhRLiOipvddIPp7NH2qR5chJjO5rwVWx7ZXsghjXBoPloLCe7hMFSyep-sAkzWiYRWrNmvXv0tuqJfmf6qUadryVhUumfxZ5rDdya0vhTDDqkNBa_D6q8B6zFxZKO_HrCA3pjr5jKsubePvSBa61kUbc4yxcHc5jQQdfRWNcUqzWN2-eOfHVPMXLW0kFcTI3SeffjEYymqP6xCfcOYEmajLxxg0PYA3sR8QaH7DQfFWWGn0P4edfRq6"/>
+</div>
+<div class="p-8">
+<h3 class="text-xl font-bold font-headline mb-2 text-on-surface leading-snug">The Cybersecurity Career Guide</h3>
+<p class="text-sm font-semibold text-primary mb-4">Gerald Auger, PhD</p>
+<p class="text-on-surface-variant text-sm font-body line-clamp-3 mb-6">
+                            Unlock your potential in the cyber industry. This comprehensive roadmap covers everything from initial certifications to landing your first six-figure role.
+                        </p>
+<a class="inline-flex items-center text-primary-container font-bold text-sm gap-2 hover:underline" href="#">
+                            Learn More
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Book Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden group border-b-4 border-transparent hover:border-primary-container transition-all">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Abstract blue tech book cover design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0gcg54zQngl4Pkjc_gjJi3K_iHfKn2cetP97eQYdiYGJR7kpc382kMfH42-Gmj6gGwvHKst64DWPkPx5eDZX549l6wtUsKob-R-KxYh9aEpEnnl2oN-9NxxzOSV2GUPXjJlQ-QFnzYuX3YLSfPsQYTCCpErOU0UYF96E9-bvMSGXdIROonBfs3nJTgdy8nsYz8cvw5ge8gBLbFdJRYCKxcKcJaA0rHQB9dPBGavbDzE8ZqXC8YmqFtXoahMen2XZLTft-pcETqazV"/>
+</div>
+<div class="p-8">
+<h3 class="text-xl font-bold font-headline mb-2 text-on-surface leading-snug">Incident Response for Beginners</h3>
+<p class="text-sm font-semibold text-primary mb-4">Gerald Auger, PhD</p>
+<p class="text-on-surface-variant text-sm font-body line-clamp-3 mb-6">
+                            Master the fundamentals of containing and remediating cyber threats. Essential reading for junior analysts and security enthusiasts.
+                        </p>
+<a class="inline-flex items-center text-primary-container font-bold text-sm gap-2 hover:underline" href="#">
+                            Learn More
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="max-w-7xl mx-auto px-8 mt-32">
+<div class="bg-primary rounded-2xl p-12 text-center text-white relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/3 translate-y-1/3"></div>
+</div>
+<div class="relative z-10">
+<h2 class="text-3xl font-bold mb-4 font-headline">Never Miss a Technical Deep Dive</h2>
+<p class="text-primary-fixed max-w-xl mx-auto mb-8 font-body">Get notified about new book releases, exclusive course content, and Dr. Auger's latest research summaries.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+<input class="bg-white/10 border-white/20 text-white placeholder-white/60 rounded-lg px-6 py-3 flex-grow focus:ring-2 focus:ring-white/40 focus:outline-none transition-all" placeholder="Enter your email" type="email"/>
+<button class="bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-primary-fixed transition-colors">Subscribe</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#c1c7d2]/15 bg-[#f7f9ff]">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-8 w-full max-w-7xl mx-auto gap-8">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[10px]" data-icon="shield">shield</span>
+</div>
+<span class="font-['Plus_Jakarta_Sans'] font-bold text-[#141c24] text-lg">Simply Cyber</span>
+</div>
+<p class="text-sm text-[#141c24]/80 font-['Inter'] max-w-xs">
+                    Elevating cybersecurity professionals through world-class education and community leadership.
+                </p>
+<p class="text-[12px] text-[#141c24]/60 font-['Inter']">
+                    © 2024 Simply Cyber. All rights reserved. Directed by Gerald Auger, PhD.
+                </p>
+</div>
+<div class="flex gap-12">
+<div class="flex flex-col gap-3">
+<span class="font-bold text-xs uppercase tracking-widest text-[#141c24]/40">Company</span>
+<a class="text-sm font-['Inter'] text-[#141c24]/60 hover:text-[#1d70b8] underline decoration-2 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">About</a>
+<a class="text-sm font-['Inter'] text-[#141c24]/60 hover:text-[#1d70b8] underline decoration-2 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Support</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-bold text-xs uppercase tracking-widest text-[#141c24]/40">Legal</span>
+<a class="text-sm font-['Inter'] text-[#141c24]/60 hover:text-[#1d70b8] underline decoration-2 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-sm font-['Inter'] text-[#141c24]/60 hover:text-[#1d70b8] underline decoration-2 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-sm font-['Inter'] text-[#141c24]/60 hover:text-[#1d70b8] underline decoration-2 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Contact</a>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-fixed transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="share">share</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-fixed transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="alternate_email">alternate_email</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

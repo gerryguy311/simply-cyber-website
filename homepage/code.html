@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Montserrat:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#0061a6",
+              "inverse-primary": "#a0caff",
+              "on-secondary": "#ffffff",
+              "tertiary-container": "#d9140e",
+              "tertiary": "#ae0002",
+              "error": "#ba1a1a",
+              "inverse-on-surface": "#e9f1fc",
+              "secondary": "#575f68",
+              "surface-container": "#e7eff9",
+              "primary-container": "#1d70b8",
+              "surface-container-high": "#e1e9f4",
+              "error-container": "#ffdad6",
+              "background": "#f7f9ff",
+              "secondary-fixed": "#dbe3ee",
+              "on-secondary-fixed-variant": "#3f4850",
+              "on-tertiary-container": "#ffece9",
+              "on-surface-variant": "#414751",
+              "on-surface": "#141c24",
+              "surface-variant": "#dbe3ee",
+              "primary": "#005796",
+              "on-primary": "#ffffff",
+              "secondary-container": "#dbe3ee",
+              "surface-container-low": "#edf4ff",
+              "surface-bright": "#f7f9ff",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-container": "#5d656e",
+              "on-tertiary-fixed": "#410000",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#141c24",
+              "outline": "#717782",
+              "primary-fixed-dim": "#a0caff",
+              "surface-container-highest": "#dbe3ee",
+              "on-error": "#ffffff",
+              "on-tertiary-fixed-variant": "#930002",
+              "on-primary-fixed": "#001c37",
+              "inverse-surface": "#293139",
+              "on-error-container": "#93000a",
+              "tertiary-fixed": "#ffdad5",
+              "tertiary-fixed-dim": "#ffb4a8",
+              "secondary-fixed-dim": "#bfc7d2",
+              "surface-dim": "#d3dbe5",
+              "surface": "#f7f9ff",
+              "on-primary-fixed-variant": "#00497e",
+              "outline-variant": "#c1c7d2",
+              "primary-fixed": "#d2e4ff",
+              "on-background": "#141c24"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans", "Montserrat", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<img alt="Simply Cyber Logo" class="h-12 w-auto object-contain" data-alt="Simply Cyber official brand logo blue" src="https://lh3.googleusercontent.com/aida/ADBb0ug55P6tZH8xPDIDGllSQfNgURFC7J7qVAdMAtE-o9_3RQ3tWzPIos5Vzwo5zqFrcqm1Vi7USe4Ax283OattgmOJmUnzQqWwz1vracabz1lGC-YvQ1TzvXsh9Jeku40Vcv8oYMZphuU_y8-VLpNiXgOfKy6fSmSkmQQ5JXSolwEpRDsuNOIkOK2vRD16IlIJzlfNDPp0mOzeH5Y74QJFXnQYSJJxN5WG8yvu3Lf4H5G_NKfa22COFf4hrjxfpsvwQAmRJb35h6DpsQ"/>
+<span class="text-xl font-bold text-slate-900 font-headline tracking-tight">Simply Cyber</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-blue-700 font-bold border-b-2 border-blue-700 pb-1 font-headline tracking-tight" href="#">Home</a>
+<a class="text-slate-600 hover:text-blue-600 transition-colors font-headline tracking-tight" href="#">Latest</a>
+<a class="text-slate-600 hover:text-blue-600 transition-colors font-headline tracking-tight" href="#">Course</a>
+<a class="text-slate-600 hover:text-blue-600 transition-colors font-headline tracking-tight" href="#">About</a>
+<a class="text-slate-600 hover:text-blue-600 transition-colors font-headline tracking-tight" href="#">Free Resources</a>
+<a class="text-slate-600 hover:text-blue-600 transition-colors font-headline tracking-tight" href="#">YouTube</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:block px-6 py-2.5 bg-primary-container text-on-primary-container font-bold rounded-lg scale-95 active:scale-90 transition-transform">
+                Start Learning Today
+            </button>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center overflow-hidden bg-on-surface">
+<div class="absolute inset-0 z-0 opacity-40">
+<img class="w-full h-full object-cover" data-alt="Cybersecurity server room with blue lighting and digital data overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG_tyugnxFa0QBfTLxeXbIR6_n3Y4nmh_7e3GWzct9iaeY2oucn4bb0tXmp6AKzeZUQUJy-qC-kA1i2tJUyiZzfkaIk4YK3vFWRefarSesDjQUvsMR0TbP0x6sNpKpFYrWmQUuHCAsWIzsAi-KFgeeTVi8THscpsG69xZoQkFYRf4xomJie76yqbaiGWr7LhvY6CogH5SlcQckMnuwugi1j4pH1hZDjGwe_-ZVWrvUNXYWM5SKLUihK8QMjDbhj54Sp7sgkyaBBUB"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-on-surface via-on-surface/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/20 border border-primary-container/30 text-primary-fixed-dim text-xs font-bold tracking-widest uppercase">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+                    Elevate Your Career
+                </div>
+<h1 class="text-5xl md:text-7xl font-extrabold text-white font-headline leading-[1.1] tracking-tighter">
+                    Gerald Auger PhD Helping <span class="text-primary-container">YOU</span> Make and Take a Cyber Career Further, Faster
+                </h1>
+<p class="text-xl text-slate-300 max-w-lg font-body leading-relaxed">
+                    The ultimate destination for cybersecurity professionals seeking actionable intelligence, expert mentorship, and career-accelerating resources.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-white font-bold rounded-lg shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all flex items-center gap-2">
+                        START LEARNING TODAY
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="px-8 py-4 border border-outline-variant/30 text-white font-bold rounded-lg hover:bg-white/10 transition-colors backdrop-blur-sm">
+                        View Courses
+                    </button>
+</div>
+</div>
+<div class="hidden md:block relative">
+<div class="absolute -inset-4 bg-primary-container/20 blur-3xl rounded-full"></div>
+<div class="relative aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Portrait of Gerald Auger PhD in a professional tech environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG_tyugnxFa0QBfTLxeXbIR6_n3Y4nmh_7e3GWzct9iaeY2oucn4bb0tXmp6AKzeZUQUJy-qC-kA1i2tJUyiZzfkaIk4YK3vFWRefarSesDjQUvsMR0TbP0x6sNpKpFYrWmQUuHCAsWIzsAi-KFgeeTVi8THscpsG69xZoQkFYRf4xomJie76yqbaiGWr7LhvY6CogH5SlcQckMnuwugi1j4pH1hZDjGwe_-ZVWrvUNXYWM5SKLUihK8QMjDbhj54Sp7sgkyaBBUB"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Statistics Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Stat 1 -->
+<div class="flex items-center gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-b-4 border-primary">
+<div class="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<div class="text-4xl font-black text-on-surface font-headline tracking-tight">20+</div>
+<div class="text-on-surface-variant font-medium">Years of Experience</div>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="flex items-center gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-b-4 border-primary">
+<div class="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<div class="text-4xl font-black text-on-surface font-headline tracking-tight">45k+</div>
+<div class="text-on-surface-variant font-medium">Students</div>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="flex items-center gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-b-4 border-primary">
+<div class="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">subscriptions</span>
+</div>
+<div>
+<div class="text-4xl font-black text-on-surface font-headline tracking-tight">270k+</div>
+<div class="text-on-surface-variant font-medium">Subscribers</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-24 relative overflow-hidden">
+<div class="absolute inset-0 bg-on-surface z-0">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-primary-container/5 skew-x-12 transform translate-x-20"></div>
+</div>
+<div class="relative z-10 max-w-5xl mx-auto px-6">
+<div class="bg-surface-container-lowest p-8 md:p-16 rounded-2xl shadow-2xl border border-outline-variant/10 flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 space-y-4 text-center md:text-left">
+<h2 class="text-3xl md:text-4xl font-extrabold text-on-surface font-headline leading-tight">
+                        Get 3 Pieces of Actionable Cyber Intel Every Monday
+                    </h2>
+<p class="text-on-surface-variant text-lg">
+                        Join over 270,000 professionals staying ahead of the threat landscape with our weekly briefing.
+                    </p>
+</div>
+<div class="w-full md:w-auto flex-none">
+<form class="flex flex-col gap-4 min-w-[320px]">
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">mail</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-b-2 border-outline-variant focus:border-primary-container outline-none transition-all font-body" placeholder="Enter your email address" type="email"/>
+</div>
+<button class="w-full py-4 bg-primary text-white font-bold rounded-lg shadow-lg hover:bg-primary-container transition-all active:scale-95 uppercase tracking-wider">
+                            Subscribe
+                        </button>
+<p class="text-center text-xs text-outline">No spam. Only high-value intel. Unsubscribe anytime.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Latest Initiatives Section -->
+<section class="py-24 bg-gradient-to-b from-surface-container-lowest to-primary/5">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-black text-on-surface font-headline tracking-tighter uppercase mb-4">Latest Initiatives</h2>
+<div class="h-1.5 w-24 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Initiative 1 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-outline-variant/10 flex flex-col">
+<div class="aspect-video relative overflow-hidden">
+<img alt="Daily Cyber Threat Brief" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG_tyugnxFa0QBfTLxeXbIR6_n3Y4nmh_7e3GWzct9iaeY2oucn4bb0tXmp6AKzeZUQUJy-qC-kA1i2tJUyiZzfkaIk4YK3vFWRefarSesDjQUvsMR0TbP0x6sNpKpFYrWmQUuHCAsWIzsAi-KFgeeTVi8THscpsG69xZoQkFYRf4xomJie76yqbaiGWr7LhvY6CogH5SlcQckMnuwugi1j4pH1hZDjGwe_-ZVWrvUNXYWM5SKLUihK8QMjDbhj54Sp7sgkyaBBUB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<h3 class="font-bold text-lg font-headline">Daily Cyber Threat Brief</h3>
+</div>
+</div>
+<a class="p-5 flex items-center justify-between hover:bg-primary hover:text-white transition-colors group/link" href="#">
+<span class="font-bold font-headline uppercase tracking-wide text-sm">Catch Us Live!</span>
+<span class="material-symbols-outlined text-xl transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<!-- Initiative 2 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-outline-variant/10 flex flex-col">
+<div class="aspect-video relative overflow-hidden">
+<img alt="GRC Analyst Master Class" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG_tyugnxFa0QBfTLxeXbIR6_n3Y4nmh_7e3GWzct9iaeY2oucn4bb0tXmp6AKzeZUQUJy-qC-kA1i2tJUyiZzfkaIk4YK3vFWRefarSesDjQUvsMR0TbP0x6sNpKpFYrWmQUuHCAsWIzsAi-KFgeeTVi8THscpsG69xZoQkFYRf4xomJie76yqbaiGWr7LhvY6CogH5SlcQckMnuwugi1j4pH1hZDjGwe_-ZVWrvUNXYWM5SKLUihK8QMjDbhj54Sp7sgkyaBBUB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<h3 class="font-bold text-lg font-headline">GRC Analyst Master Class</h3>
+</div>
+</div>
+<a class="p-5 flex items-center justify-between hover:bg-primary hover:text-white transition-colors group/link" href="#">
+<span class="font-bold font-headline uppercase tracking-wide text-sm">Learn Now!</span>
+<span class="material-symbols-outlined text-xl transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<!-- Initiative 3 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-outline-variant/10 flex flex-col">
+<div class="aspect-video relative overflow-hidden">
+<img alt="Cybersecurity Home Labs" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG_tyugnxFa0QBfTLxeXbIR6_n3Y4nmh_7e3GWzct9iaeY2oucn4bb0tXmp6AKzeZUQUJy-qC-kA1i2tJUyiZzfkaIk4YK3vFWRefarSesDjQUvsMR0TbP0x6sNpKpFYrWmQUuHCAsWIzsAi-KFgeeTVi8THscpsG69xZoQkFYRf4xomJie76yqbaiGWr7LhvY6CogH5SlcQckMnuwugi1j4pH1hZDjGwe_-ZVWrvUNXYWM5SKLUihK8QMjDbhj54Sp7sgkyaBBUB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<h3 class="font-bold text-lg font-headline">Cybersecurity Home Labs</h3>
+</div>
+</div>
+<a class="p-5 flex items-center justify-between hover:bg-primary hover:text-white transition-colors group/link" href="#">
+<span class="font-bold font-headline uppercase tracking-wide text-sm">Build it!</span>
+<span class="material-symbols-outlined text-xl transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<!-- Initiative 4 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-outline-variant/10 flex flex-col">
+<div class="aspect-video relative overflow-hidden">
+<img alt="Cybersecurity Career Master Plan" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG_tyugnxFa0QBfTLxeXbIR6_n3Y4nmh_7e3GWzct9iaeY2oucn4bb0tXmp6AKzeZUQUJy-qC-kA1i2tJUyiZzfkaIk4YK3vFWRefarSesDjQUvsMR0TbP0x6sNpKpFYrWmQUuHCAsWIzsAi-KFgeeTVi8THscpsG69xZoQkFYRf4xomJie76yqbaiGWr7LhvY6CogH5SlcQckMnuwugi1j4pH1hZDjGwe_-ZVWrvUNXYWM5SKLUihK8QMjDbhj54Sp7sgkyaBBUB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<h3 class="font-bold text-lg font-headline">Cybersecurity Career Master Plan</h3>
+</div>
+</div>
+<a class="p-5 flex items-center justify-between hover:bg-primary hover:text-white transition-colors group/link" href="#">
+<span class="font-bold font-headline uppercase tracking-wide text-sm">I Wrote A Book!</span>
+<span class="material-symbols-outlined text-xl transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<!-- Initiative 5 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-outline-variant/10 flex flex-col">
+<div class="aspect-video relative overflow-hidden">
+<img alt="Cybersecurity Free Resources" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG_tyugnxFa0QBfTLxeXbIR6_n3Y4nmh_7e3GWzct9iaeY2oucn4bb0tXmp6AKzeZUQUJy-qC-kA1i2tJUyiZzfkaIk4YK3vFWRefarSesDjQUvsMR0TbP0x6sNpKpFYrWmQUuHCAsWIzsAi-KFgeeTVi8THscpsG69xZoQkFYRf4xomJie76yqbaiGWr7LhvY6CogH5SlcQckMnuwugi1j4pH1hZDjGwe_-ZVWrvUNXYWM5SKLUihK8QMjDbhj54Sp7sgkyaBBUB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<h3 class="font-bold text-lg font-headline">Cybersecurity Free Resources</h3>
+</div>
+</div>
+<a class="p-5 flex items-center justify-between hover:bg-primary hover:text-white transition-colors group/link" href="#">
+<span class="font-bold font-headline uppercase tracking-wide text-sm">For Everyone!</span>
+<span class="material-symbols-outlined text-xl transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<!-- Initiative 6 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-outline-variant/10 flex flex-col">
+<div class="aspect-video relative overflow-hidden">
+<img alt="Join Us!" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG_tyugnxFa0QBfTLxeXbIR6_n3Y4nmh_7e3GWzct9iaeY2oucn4bb0tXmp6AKzeZUQUJy-qC-kA1i2tJUyiZzfkaIk4YK3vFWRefarSesDjQUvsMR0TbP0x6sNpKpFYrWmQUuHCAsWIzsAi-KFgeeTVi8THscpsG69xZoQkFYRf4xomJie76yqbaiGWr7LhvY6CogH5SlcQckMnuwugi1j4pH1hZDjGwe_-ZVWrvUNXYWM5SKLUihK8QMjDbhj54Sp7sgkyaBBUB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<h3 class="font-bold text-lg font-headline">Join Us!</h3>
+</div>
+</div>
+<a class="p-5 flex items-center justify-between hover:bg-primary hover:text-white transition-colors group/link" href="#">
+<span class="font-bold font-headline uppercase tracking-wide text-sm">Join our Discord community</span>
+<span class="material-symbols-outlined text-xl transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Featured Initiative Highlight -->
+<div class="mt-20 bg-primary/10 rounded-2xl p-6 md:p-10 flex flex-col lg:flex-row items-center gap-10 border border-primary/20">
+<div class="w-full lg:w-1/2 rounded-xl overflow-hidden shadow-2xl">
+<img alt="GRC Analyst Master Class Featured" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG_tyugnxFa0QBfTLxeXbIR6_n3Y4nmh_7e3GWzct9iaeY2oucn4bb0tXmp6AKzeZUQUJy-qC-kA1i2tJUyiZzfkaIk4YK3vFWRefarSesDjQUvsMR0TbP0x6sNpKpFYrWmQUuHCAsWIzsAi-KFgeeTVi8THscpsG69xZoQkFYRf4xomJie76yqbaiGWr7LhvY6CogH5SlcQckMnuwugi1j4pH1hZDjGwe_-ZVWrvUNXYWM5SKLUihK8QMjDbhj54Sp7sgkyaBBUB"/>
+</div>
+<div class="w-full lg:w-1/2 space-y-6">
+<h3 class="text-3xl font-black text-on-surface font-headline leading-tight">GRC Analyst Master Class</h3>
+<div class="space-y-4">
+<p class="text-on-surface-variant text-lg font-medium leading-relaxed">
+                            No prerequisites, no technical background needed, any point in your career journey; this course can deliver value to you.
+                        </p>
+<p class="text-on-surface-variant text-lg font-medium leading-relaxed">
+                            Lecture and labs delivering practical knowledge in audit, risk, and awareness.
+                        </p>
+</div>
+<button class="w-full md:w-auto px-12 py-4 bg-primary text-white font-bold rounded-lg shadow-lg hover:bg-primary-container transition-all active:scale-95 uppercase tracking-widest font-headline">
+                        GET IT
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommended Playlists Section -->
+<section class="py-24 bg-[#343a40]">
+<div class="max-w-7xl mx-auto px-6">
+<!-- YouTube Header -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-12 mb-20 bg-transparent">
+<div class="w-full md:w-1/2 flex justify-center md:justify-start">
+<div class="bg-transparent border-2 border-slate-500 p-4 rounded-sm inline-block">
+<img alt="Simply Cyber YouTube Header Logo" class="h-32 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ug55P6tZH8xPDIDGllSQfNgURFC7J7qVAdMAtE-o9_3RQ3tWzPIos5Vzwo5zqFrcqm1Vi7USe4Ax283OattgmOJmUnzQqWwz1vracabz1lGC-YvQ1TzvXsh9Jeku40Vcv8oYMZphuU_y8-VLpNiXgOfKy6fSmSkmQQ5JXSolwEpRDsuNOIkOK2vRD16IlIJzlfNDPp0mOzeH5Y74QJFXnQYSJJxN5WG8yvu3Lf4H5G_NKfa22COFf4hrjxfpsvwQAmRJb35h6DpsQ"/>
+<div class="mt-2 text-center text-[8px] text-slate-400 font-headline tracking-[0.2em] uppercase">Make and take your cyber career further, faster</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 space-y-8 text-center md:text-left">
+<p class="text-xl text-white font-headline leading-relaxed">
+                        Simply Cyber YouTube channel has hundreds of free cybersecurity content to help you understand how to start and navigate a career path in cybersecurity.
+                    </p>
+<button class="inline-flex items-center gap-3 px-8 py-3.5 bg-[#e62117] text-white font-bold rounded-lg hover:bg-red-700 transition-colors uppercase tracking-widest text-sm shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                        Visit Channel
+                    </button>
+</div>
+</div>
+<!-- Section Title -->
+<div class="text-center mb-16">
+<h2 class="text-4xl font-extrabold text-white font-headline tracking-widest uppercase">Recommended Playlists</h2>
+</div>
+<!-- Playlist Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-white rounded-none flex flex-col h-full shadow-2xl">
+<div class="bg-[#141c24] p-6 text-center border-b-4 border-primary relative overflow-hidden h-40 flex items-center justify-center">
+<div class="absolute inset-0 opacity-20">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG_tyugnxFa0QBfTLxeXbIR6_n3Y4nmh_7e3GWzct9iaeY2oucn4bb0tXmp6AKzeZUQUJy-qC-kA1i2tJUyiZzfkaIk4YK3vFWRefarSesDjQUvsMR0TbP0x6sNpKpFYrWmQUuHCAsWIzsAi-KFgeeTVi8THscpsG69xZoQkFYRf4xomJie76yqbaiGWr7LhvY6CogH5SlcQckMnuwugi1j4pH1hZDjGwe_-ZVWrvUNXYWM5SKLUihK8QMjDbhj54Sp7sgkyaBBUB"/>
+</div>
+<h3 class="relative z-10 text-2xl font-black text-white font-headline leading-tight tracking-tighter uppercase">Want to be a<br/>SOC Analyst?</h3>
+</div>
+<div class="p-8 flex flex-col flex-1">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6 font-medium">
+                            Blue team (SOC Life) is a great path to take in cybersecurity. Where is the path?, what do you do first? What are challenges of the job? This playlist highlights and clarifies through the perspective of multiple professional SOC analysts what you know and what you NEED to know to become a SOC analyst.
+                        </p>
+<div class="mt-auto">
+<button class="flex items-center gap-2 px-6 py-2.5 bg-[#e62117] text-white font-bold rounded-lg hover:bg-red-700 transition-all text-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                Watch
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white rounded-none flex flex-col h-full shadow-2xl">
+<div class="bg-[#141c24] p-6 text-center border-b-4 border-primary relative overflow-hidden h-40 flex items-center justify-center">
+<div class="absolute inset-0 opacity-20">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG_tyugnxFa0QBfTLxeXbIR6_n3Y4nmh_7e3GWzct9iaeY2oucn4bb0tXmp6AKzeZUQUJy-qC-kA1i2tJUyiZzfkaIk4YK3vFWRefarSesDjQUvsMR0TbP0x6sNpKpFYrWmQUuHCAsWIzsAi-KFgeeTVi8THscpsG69xZoQkFYRf4xomJie76yqbaiGWr7LhvY6CogH5SlcQckMnuwugi1j4pH1hZDjGwe_-ZVWrvUNXYWM5SKLUihK8QMjDbhj54Sp7sgkyaBBUB"/>
+</div>
+<h3 class="relative z-10 text-2xl font-black text-white font-headline leading-tight tracking-tighter uppercase">Have no IT<br/>background?</h3>
+</div>
+<div class="p-8 flex flex-col flex-1">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6 font-medium">
+                            Is Cybersecurity for IT people only? NO! But how does one start without an IT background? This playlist is designed for those folks that want to get into the cybersecurity field and need to understand what its about, what pieces of IT they need to learn (and learn it through these videos), to have a successful cybersecurity career.
+                        </p>
+<div class="mt-auto">
+<button class="flex items-center gap-2 px-6 py-2.5 bg-[#e62117] text-white font-bold rounded-lg hover:bg-red-700 transition-all text-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                Watch
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white rounded-none flex flex-col h-full shadow-2xl">
+<div class="bg-[#141c24] p-6 text-center border-b-4 border-primary relative overflow-hidden h-40 flex items-center justify-center">
+<div class="absolute inset-0 opacity-20">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG_tyugnxFa0QBfTLxeXbIR6_n3Y4nmh_7e3GWzct9iaeY2oucn4bb0tXmp6AKzeZUQUJy-qC-kA1i2tJUyiZzfkaIk4YK3vFWRefarSesDjQUvsMR0TbP0x6sNpKpFYrWmQUuHCAsWIzsAi-KFgeeTVi8THscpsG69xZoQkFYRf4xomJie76yqbaiGWr7LhvY6CogH5SlcQckMnuwugi1j4pH1hZDjGwe_-ZVWrvUNXYWM5SKLUihK8QMjDbhj54Sp7sgkyaBBUB"/>
+</div>
+<h3 class="relative z-10 text-2xl font-black text-white font-headline leading-tight tracking-tighter uppercase">Military to<br/>Cybersecurity</h3>
+</div>
+<div class="p-8 flex flex-col flex-1">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6 font-medium">
+                            Veterans have access to many resources and opportunities but may not know how to best position themselves into the cybersecurity industry. This playlist highlights and clarifies transitioning from military service into cybersecurity. There are episodes with interviews of former services members giving their perspective and take on it.
+                        </p>
+<div class="mt-auto">
+<button class="flex items-center gap-2 px-6 py-2.5 bg-[#e62117] text-white font-bold rounded-lg hover:bg-red-700 transition-all text-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                Watch
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Thought Leadership Section -->
+<section class="py-24 bg-[#3d657d]">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
+<h2 class="text-4xl font-extrabold text-white font-headline tracking-[0.1em]">THOUGHT LEADERSHIP</h2>
+<a class="text-white font-bold border-b-2 border-white pb-1 hover:opacity-80 transition-opacity font-headline tracking-widest text-sm uppercase" href="#">SEE ALL POSTS</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-white rounded-none flex flex-col shadow-xl h-full">
+<div class="aspect-video bg-slate-100 flex items-center justify-center text-slate-300">
+<span class="material-symbols-outlined text-6xl">image</span>
+</div>
+<div class="p-8 flex flex-col justify-center flex-1">
+<h3 class="text-xl font-bold text-on-surface font-headline leading-tight">Crush the CISSP</h3>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white rounded-none flex flex-col shadow-xl h-full">
+<div class="p-8 flex flex-col justify-center flex-1">
+<h3 class="text-xl font-bold text-on-surface font-headline leading-tight">How Hyperautomating Microsoft is a SOC Analyst GAME CHANGER! 💥</h3>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white rounded-none flex flex-col shadow-xl h-full">
+<div class="p-8 flex flex-col justify-center flex-1">
+<h3 class="text-xl font-bold text-on-surface font-headline leading-tight">Overcoming Imposter Syndrome in Cybersecurity: Your Journey to Success</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bio Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+<div class="w-full lg:w-1/3">
+<div class="aspect-square rounded-none overflow-hidden shadow-2xl">
+<img alt="Gerald Auger, PhD" class="w-full h-full object-cover" src="../assets/gerald-auger.jpg"/>
+</div>
+</div>
+<div class="w-full lg:w-2/3 space-y-6">
+<h2 class="text-4xl md:text-5xl font-black text-[#1d70b8] font-headline tracking-tight">Who is Gerald Auger, PhD?</h2>
+<p class="text-xl text-on-surface-variant font-medium leading-relaxed">
+                    I'm incredibly passionate about cybersecurity and helping others. I've worked in the industry for nearly two decades, hold multiple degrees in cybersecurity related fields, and love sharing my experience.
+                </p>
+</div>
+</div>
+</section>
+<!-- Calendar Section -->
+<section class="py-24 bg-gradient-to-b from-[#1d70b8] to-[#00497e] text-white">
+<div class="max-w-7xl mx-auto px-6 text-center space-y-12">
+<div class="space-y-4">
+<h2 class="text-4xl md:text-5xl font-extrabold font-headline uppercase tracking-widest">CALENDAR OF EVENTS</h2>
+<p class="text-xl opacity-90 font-headline font-medium">Click on an event to see what's happening and save a reminder to your calendar.</p>
+</div>
+<div class="bg-white rounded-lg shadow-2xl p-4 overflow-hidden">
+<iframe src="https://calendar.google.com/calendar/embed?src=eecfnaqehac0o0p0k8uh14q34s%40group.calendar.google.com&ctz=America%2FNew_York&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&mode=MONTH" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+</div>
+<div class="pt-20 space-y-8 max-w-4xl mx-auto">
+<h3 class="text-3xl md:text-4xl font-extrabold font-headline text-white leading-tight">Get Access To All The Newest Initiatives</h3>
+<form class="flex flex-col md:flex-row gap-4">
+<input class="flex-1 px-6 py-4 rounded-lg bg-white text-on-surface border-none focus:ring-4 focus:ring-primary-container/30 transition-all font-body" placeholder="First Name" type="text"/>
+<input class="flex-1 px-6 py-4 rounded-lg bg-white text-on-surface border-none focus:ring-4 focus:ring-primary-container/30 transition-all font-body" placeholder="Email Address" type="email"/>
+<button class="px-10 py-4 bg-primary-container text-white font-black uppercase tracking-widest rounded-lg hover:bg-primary-container/90 transition-all shadow-lg shadow-black/20" type="submit">Subscribe</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 py-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-6 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1 space-y-6">
+<div class="flex items-center gap-2">
+<img alt="Simply Cyber Logo" class="h-12 w-auto object-contain" data-alt="Simply Cyber official brand logo blue" src="https://lh3.googleusercontent.com/aida/ADBb0ug55P6tZH8xPDIDGllSQfNgURFC7J7qVAdMAtE-o9_3RQ3tWzPIos5Vzwo5zqFrcqm1Vi7USe4Ax283OattgmOJmUnzQqWwz1vracabz1lGC-YvQ1TzvXsh9Jeku40Vcv8oYMZphuU_y8-VLpNiXgOfKy6fSmSkmQQ5JXSolwEpRDsuNOIkOK2vRD16IlIJzlfNDPp0mOzeH5Y74QJFXnQYSJJxN5WG8yvu3Lf4H5G_NKfa22COFf4hrjxfpsvwQAmRJb35h6DpsQ"/>
+<span class="text-xl font-bold text-slate-900 font-headline tracking-tight">Simply Cyber</span>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed">
+                Founded by Gerald Auger PhD, Simply Cyber is dedicated to making cyber security education accessible to everyone, everywhere.
+            </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">videocam</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</a>
+</div>
+</div>
+<div class="space-y-6">
+<h5 class="text-sm font-bold uppercase tracking-widest text-on-surface">Resources</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-blue-600 transition-colors text-sm" href="#">Course Catalog</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 transition-colors text-sm" href="#">Free Study Guides</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 transition-colors text-sm" href="#">Podcast Episodes</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 transition-colors text-sm" href="#">YouTube Channel</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="text-sm font-bold uppercase tracking-widest text-on-surface">Company</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-blue-600 transition-colors text-sm" href="#">About Us</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 transition-colors text-sm" href="#">Careers</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 transition-colors text-sm" href="#">Contact Us</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 transition-colors text-sm" href="#">Partner Program</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="text-sm font-bold uppercase tracking-widest text-on-surface">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-blue-600 transition-colors text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 transition-colors text-sm" href="#">Terms of Service</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 transition-colors text-sm" href="#">Cookie Settings</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-slate-200 max-w-7xl mx-auto px-6 text-center">
+<p class="text-slate-400 text-xs">© 2024 Simply Cyber. All rights reserved. Helping you make and take a cyber career further, faster.</p>
+</div>
+</footer>
+</body></html>
