@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Free Resources | Simply Cyber</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#10141a",
+              "surface-dim": "#10141a",
+              "surface-bright": "#363a41",
+              "surface-container-lowest": "#0b0e13",
+              "surface-container-low": "#161a21",
+              "surface-container": "#1c2026",
+              "surface-container-high": "#262a31",
+              "surface-container-highest": "#30353c",
+              "surface-variant": "#414754",
+              "surface-tint": "#adc7ff",
+              "on-surface": "#e0e3e8",
+              "on-surface-variant": "#c1c7d2",
+              "outline": "#8b9199",
+              "outline-variant": "#414754",
+              "primary": "#adc7ff",
+              "primary-container": "#1a73e8",
+              "on-primary": "#003060",
+              "on-primary-container": "#d2e4ff",
+              "primary-fixed": "#d2e4ff",
+              "primary-fixed-dim": "#a0caff",
+              "secondary": "#bfc7d2",
+              "secondary-container": "#3f4850",
+              "on-secondary": "#293139",
+              "on-secondary-container": "#dbe3ee",
+              "secondary-fixed": "#dbe3ee",
+              "secondary-fixed-dim": "#bfc7d2",
+              "on-secondary-fixed": "#141c24",
+              "on-secondary-fixed-variant": "#3f4850",
+              "tertiary": "#ffb4a8",
+              "tertiary-container": "#930002",
+              "on-tertiary": "#5c1900",
+              "on-tertiary-container": "#ffdad5",
+              "tertiary-fixed": "#ffdad5",
+              "tertiary-fixed-dim": "#ffb4a8",
+              "on-tertiary-fixed": "#410000",
+              "on-tertiary-fixed-variant": "#930002",
+              "error": "#ffb4ab",
+              "error-container": "#93000a",
+              "on-error": "#690005",
+              "on-error-container": "#ffdad6",
+              "background": "#10141a",
+              "on-background": "#e0e3e8",
+              "inverse-surface": "#e0e3e8",
+              "inverse-on-surface": "#293139",
+              "inverse-primary": "#005796",
+            },
+            fontFamily: {
+              "headline": ["Inter", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              "none": "0",
+              "sm": "0.375rem",
+              "DEFAULT": "0.5rem",
+              "md": "0.75rem",
+              "lg": "1rem",
+              "xl": "1.5rem",
+              "2xl": "2rem",
+              "full": "9999px",
+            },
+            letterSpacing: {
+              "editorial": "-0.02em",
+              "readable": "0.01em",
+            },
+            boxShadow: {
+              "ambient": "0 8px 32px rgba(0, 0, 0, 0.08)",
+              "ambient-lg": "0 16px 64px rgba(0, 0, 0, 0.10)",
+              "glow": "0 0 32px rgba(26, 115, 232, 0.15)",
+              "glow-lg": "0 0 64px rgba(26, 115, 232, 0.10)",
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(16, 20, 26, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .asymmetric-shape {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+        .hidden-card {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface tracking-readable">
+<!-- TopNavBar (shared with homepage) -->
+<nav class="fixed top-0 w-full z-50 glass-nav">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<a href="/">
+<img alt="Simply Cyber Logo" class="h-12 w-auto object-contain" data-alt="Simply Cyber official brand logo blue" src="../assets/SC_SimplyCyber(OneColourInverse).png"/>
+</a>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial" href="/">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial" href="/#latest-initiatives">Latest</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial" href="https://www.youtube.com/@simplycyber" target="_blank" rel="noopener noreferrer">YouTube</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial" href="/#grc-masterclass">Courses</a>
+<a class="text-primary font-bold font-headline tracking-editorial border-b-2 border-primary pb-0.5" href="#">Free Resources</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial" href="/books/">Books</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial" href="/media/">Media</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial" href="/legal/">Legal</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial" href="/#about-gerald">About</a>
+</div>
+<div class="flex items-center gap-4">
+<a href="https://academy.simplycyber.io/" target="_blank" rel="noopener noreferrer" class="hidden lg:block px-6 py-2.5 bg-gradient-to-br from-primary-container to-secondary-container text-white font-bold rounded-md active:scale-90 transition-transform">
+                Start Learning Today
+            </a>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section: Architectural Sentinel Style -->
+<header class="relative overflow-hidden bg-surface-container-low pt-20 pb-32 asymmetric-shape">
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="max-w-3xl">
+<div class="flex items-center gap-2 mb-6">
+<span class="w-12 h-1 bg-primary rounded-full"></span>
+<span class="text-primary font-bold tracking-widest text-xs uppercase font-headline">Curated Excellence</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-bold text-on-surface font-headline leading-[1.1] tracking-editorial mb-8">
+                        Free Cyber <br/>
+<span class="text-primary">Resources</span>
+</h1>
+<p class="text-lg text-on-surface-variant leading-relaxed max-w-xl mb-10">
+                        A centralized intelligence hub featuring battle-tested tools, roadmaps, and frameworks curated for the modern security professional. High-impact content, zero cost.
+                    </p>
+<!-- Search & Filter Controls -->
+<div class="flex flex-wrap gap-4 items-center">
+<div class="relative flex-grow max-w-md">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">manage_search</span>
+<input id="searchInput" class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border-b-2 border-outline-variant/15 focus:border-primary-container focus:ring-0 transition-all rounded-t-lg outline-none" placeholder="Search blueprints, tools, checklists..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="px-6 py-4 bg-primary text-on-primary rounded-lg font-semibold flex items-center gap-2 shadow-xl shadow-primary/10">
+<span class="material-symbols-outlined">filter_list</span>
+                                Filter Resources
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+<div class="absolute inset-0 bg-gradient-to-l from-primary to-transparent"></div>
+<div class="grid grid-cols-8 gap-1 h-full rotate-12 translate-x-1/4">
+<div class="h-full border-r border-primary/20"></div>
+<div class="h-full border-r border-primary/20"></div>
+<div class="h-full border-r border-primary/20"></div>
+<div class="h-full border-r border-primary/20"></div>
+</div>
+</div>
+</header>
+<!-- Category Quick Filters -->
+<section class="max-w-7xl mx-auto px-6 -mt-12 relative z-20">
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex flex-wrap gap-3 items-center border border-outline-variant/10">
+<span class="text-sm font-bold text-on-surface-variant px-4">Categories:</span>
+<button class="category-filter px-5 py-2 rounded-full bg-primary text-on-primary text-sm font-semibold transition-all" data-category="all">All Resources</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="All Around Defender Primers">#Defender Primers</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="Cheat Sheets">#Cheat Sheets</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="Digital Forensics and Incident Response">#DFIR</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="Cloud Security">#Cloud Security</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="Training">#Training</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="Tools">#Tools</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="Youtube">#YouTube</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="Certifications">#Certifications</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="Books">#Books</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="College Courses">#College Courses</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="Graphic">#Graphic</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="News">#News</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="Podcasts">#Podcasts</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="Professional Networking">#Networking</button>
+<button class="category-filter px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high text-sm font-medium transition-all" data-category="Veterans">#Veterans</button>
+</div>
+</section>
+<!-- Resource Bento Grid -->
+<section class="max-w-7xl mx-auto px-6 py-24">
+<div id="resourcesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- All 246 Resource Cards Will Be Inserted Here By JavaScript -->
+</div>
+</section>
+<!-- Technical Specs / Newsletter Section -->
+<section class="bg-surface-container-highest py-24">
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-4xl font-extrabold font-headline tracking-tight mb-6">Weekly Cyber Intelligence</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                        Join 50,000+ security professionals who receive our weekly breakdown of new resources, threat intel, and career shortcuts.
+                    </p>
+<iframe src="https://embeds.beehiiv.com/2f8567fd-b930-4f9f-bfff-288a12426d26" data-test-id="beehiiv-embed" width="100%" height="320" frameborder="0" scrolling="no" style="border-radius: 4px; border: 2px solid #e5e7eb; margin: 0; background-color: transparent;"></iframe>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-6 bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="text-3xl font-black text-primary mb-1">246</div>
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Total Resources</div>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="text-3xl font-black text-primary mb-1">15</div>
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Categories</div>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="text-3xl font-black text-primary mb-1">100%</div>
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Free Access</div>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="text-3xl font-black text-primary mb-1">Curated</div>
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Content Quality</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component Implementation) -->
+<footer class="bg-surface-container-low py-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-6 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1 space-y-6">
+<div class="flex items-center gap-2">
+<img alt="Simply Cyber Logo" class="h-12 w-auto object-contain" data-alt="Simply Cyber official brand logo blue" src="../assets/SC_SimplyCyber(OneColourInverse).png"/>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                Founded by Gerald Auger PhD, Simply Cyber is dedicated to making cyber security education accessible to everyone, everywhere.
+            </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-white transition-all" href="https://SimplyCyber.io/socials" target="_blank" rel="noopener noreferrer">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-white transition-all" href="https://www.youtube.com/@simplycyber" target="_blank" rel="noopener noreferrer">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">videocam</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-white transition-all" href="https://simplycyber.io/discord" target="_blank" rel="noopener noreferrer">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</a>
+</div>
+</div>
+<div class="space-y-6">
+<h5 class="text-sm font-bold uppercase tracking-widest text-on-surface">Resources</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="https://academy.simplycyber.io/" target="_blank" rel="noopener noreferrer">Course Catalog</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="https://www.youtube.com/@SimplyCyber/podcasts" target="_blank" rel="noopener noreferrer">Podcast Episodes</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="https://www.youtube.com/@simplycyber" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="text-sm font-bold uppercase tracking-widest text-on-surface">Company</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Media</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Careers</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Contact Us</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="#">Partner Program</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="text-sm font-bold uppercase tracking-widest text-on-surface">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="/legal/#privacy-policy">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="/legal/#terms-of-service">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="/legal/#cookie-settings">Cookie Settings</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-20 pt-8 max-w-7xl mx-auto px-6 text-center">
+<p class="text-outline text-xs">&copy; 2024 Simply Cyber. All rights reserved. Helping you make and take a cyber career further, faster.</p>
+</div>
+</footer>
+
+<script>
+// All 246 Resources Data
+const resources = [
+{"id": 0, "title": "Paul Jerimy Cybersecurity Certification Roadmap", "url": "https://pauljerimy.com/security-certification-roadmap/", "category": "Certifications", "description": "Huge list of cybersecurity certifications arranged by capability and level of experience", "price": "Free"},
+{"id": 1, "title": "Critical Log Review Checklist for Security Incidents", "url": "https://zeltser.com/security-incident-log-review-checklist/", "category": "Cheat Sheets", "description": "", "price": "Free"},
+{"id": 2, "title": "Security Architecture Cheat Sheet for Internet Applications", "url": "https://zeltser.com/security-architecture-cheat-sheet/", "category": "Cheat Sheets", "description": "", "price": "Free"},
+{"id": 3, "title": "Tips for Troubleshooting Human Communications", "url": "https://zeltser.com/human-communications-cheat-sheet/", "category": "Cheat Sheets", "description": "", "price": "Free"},
+{"id": 4, "title": "Security Incident Survey Cheat Sheet for Server Administrators", "url": "https://zeltser.com/security-incident-survey-cheat-sheet/", "category": "Cheat Sheets", "description": "", "price": "Free"},
+{"id": 5, "title": "Network DDoS Incident Response Cheat Sheet", "url": "https://zeltser.com/ddos-incident-cheat-sheet/", "category": "Cheat Sheets", "description": "", "price": "Free"},
+{"id": 6, "title": "Information Security Assessment RFP Cheat Sheet", "url": "https://zeltser.com/cheat-sheets/", "category": "Cheat Sheets", "description": "", "price": "Free"},
+{"id": 7, "title": "SIFT Workstation Cheat Sheet", "url": "https://digital-forensics.sans.org/media/sift_cheat_sheet.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 8, "title": "Tips for Reverse-Engineering Malicious Code", "url": "https://www.sans.org/posters/?focus-area=digital-forensics", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 9, "title": "Usage Tips for Malware Analysis on Linux", "url": "https://digital-forensics.sans.org/media/remnux-malware-analysis-tips.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 10, "title": "Analyzing Malicious Documents", "url": "https://digital-forensics.sans.org/media/analyzing-malicious-document-files.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 11, "title": "Malware Analysis Cheat Sheet", "url": "https://digital-forensics.sans.org/media/malware-analysis-cheat-sheet.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 12, "title": "SQLite Pocket Reference", "url": "https://digital-forensics.sans.org/media/SQlite-PocketReference-final.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 13, "title": "Eric Zimmerman Command Line Tools Cheat Sheet", "url": "https://digital-forensics.sans.org/media/EricZimmermanCommandLineToolsCheatSheet-v1.0.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 14, "title": "PlainText HTTP Request", "url": "https://pen-testing.sans.org/retrieve/plain-text-http-request.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 15, "title": "Volatility Memory Analysis Cheat Sheet", "url": "https://digital-forensics.sans.org/media/volatility-memory-forensics-cheat-sheet.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 16, "title": "Volatility3 Cheat Sheet", "url": "https://blog.onfvp.com/post/volatility-cheatsheet/", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 17, "title": "Cloud Cloud Architecture Framework", "url": "https://cloud.google.com/architecture/framework", "category": "Cloud Security", "description": "", "price": "Free"},
+{"id": 18, "title": "AWS Risk and Compliance Whitepaper", "url": "https://d0.awsstatic.com/whitepapers/compliance/AWS_Risk_and_Compliance_Whitepaper.pdf", "category": "Cloud Security", "description": "", "price": "Free"},
+{"id": 19, "title": "AWS Well-Architected Security Pillar", "url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html", "category": "Cloud Security", "description": "", "price": "Free"},
+{"id": 20, "title": "The majority of DFIR Cheat Sheets", "url": "https://digital-forensics.sans.org/community/cheat-sheets", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 21, "title": "Swiss Army Knife collection of PenTesting Cheatsheets", "url": "https://www.sans.org/blog/the-ultimate-list-of-sans-cheat-sheets/", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 22, "title": "SQLite Injection Cheat Sheet", "url": "https://sites.google.com/site/0aborni/www-444-es", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 23, "title": "SSL/TLS Vulnerability Cheat Sheet", "url": "https://owasp.org/www-project-cheat-sheets/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 24, "title": "Windows Intrusion Discovery Cheat Sheet v3.0", "url": "https://pen-testing.sans.org/retrieve/windows-cheat-sheet.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 25, "title": "Intrusion Discovery Cheat Sheet v2.0 (Linux)", "url": "https://pen-testing.sans.org/retrieve/linux-cheat-sheet.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 26, "title": "Intrusion Discovery Cheat Sheet v2.0 (Windows 2000)", "url": "https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/bltd6fa777a3215f34a/5eb08aae08d37e6d82ef77fe/win2ksacheatsheet.pdf", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 27, "title": "Windows Command Line", "url": "https://pen-testing.sans.org/retrieve/windows-command-line-sheet.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 28, "title": "Netcat Cheat Sheet", "url": "https://pen-testing.sans.org/retrieve/netcat-cheat-sheet.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 29, "title": "Misc Tools Cheat Sheet", "url": "https://pen-testing.sans.org/retrieve/misc-tools-sheet.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 30, "title": "Python 3 Essentials", "url": "https://www.sans.org/blog/sans-cheat-sheet-python-3/?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 31, "title": "Windows Command Line Cheat Sheet", "url": "https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/blt4e45e00c2973546d/5eb08aae4461f75d77a48fd4/WindowsCommandLineSheetV1.pdf", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 32, "title": "SMB Access from Linux Cheat Sheet", "url": "https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/blta6a2ae64ec0ed535/5eb08aaeead3926127b4df44/SMB-Access-from-Linux.pdf", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 33, "title": "Pivot Cheat Sheet", "url": "https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/blt0f228a4b9a1165e4/5ef3d602395b554cb3523e7b/pivot-cheat-sheet-v1.0.pdf", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 34, "title": "Google Hacking and Defense Cheat Sheet", "url": "https://www.sans.org/security-resources/GoogleCheatSheet.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 35, "title": "PowerShell Cheat Sheet", "url": "https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/bltf32f4486c266d422/5eb08aae26a7c2508b2f158a/powershellcheatv2.pdf", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 36, "title": "DFIR: Files and Sharing Artifact Poster", "url": "https://www.sans.org/posters/windows-forensic-analysis/", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 37, "title": "DFIR: Smartphone Forensic Guide", "url": "https://digital-forensics.sans.org/media/DFIR-Smartphone-Forensics-Poster.pdf?msc=Cheat+Sheet+Blog", "category": "Digital Forensics and Incident Response", "description": "", "price": "Free"},
+{"id": 38, "title": "All Around Defender Primer: MITRE ATT&CK Framework", "url": "https://attack.mitre.org/", "category": "All Around Defender Primers", "description": "", "price": "Free"},
+{"id": 39, "title": "All Around Defender Primer: Cyber Kill Chain Framework", "url": "https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html", "category": "All Around Defender Primers", "description": "", "price": "Free"},
+{"id": 40, "title": "All Around Defender Primer: OWASP Top 10 Web Application Security Risks", "url": "https://owasp.org/www-project-top-ten/", "category": "All Around Defender Primers", "description": "", "price": "Free"},
+{"id": 41, "title": "All Around Defender Primer: Diamond Model for Intrusion Analysis", "url": "https://apps.dtic.mil/sti/pdfs/ADA586960.pdf", "category": "All Around Defender Primers", "description": "", "price": "Free"},
+{"id": 42, "title": "All Around Defender Primer: NIST Cyber Security Framework", "url": "https://www.nist.gov/cyberframework", "category": "All Around Defender Primers", "description": "", "price": "Free"},
+{"id": 43, "title": "All Around Defender Primer: NIST SP 800-53", "url": "https://csf.tools/reference/nist-sp-800-53/r5/", "category": "All Around Defender Primers", "description": "", "price": "Free"},
+{"id": 44, "title": "All Around Defender Primer: CIS Top 20 Critical Security Controls", "url": "https://www.cisecurity.org/controls/cis-controls-list/", "category": "All Around Defender Primers", "description": "", "price": "Free"},
+{"id": 45, "title": "All Around Defender Primer: CVE", "url": "https://www.cve.org/", "category": "All Around Defender Primers", "description": "", "price": "Free"},
+{"id": 46, "title": "The Art of War - Sun Tzu Graphic Novel", "url": "https://sfrfrances.com/wp-content/uploads/2017/10/The-Art-of-War.pdf", "category": "Graphic", "description": "Graphic Novel of The Art of War by Sun Tzu", "price": "Free"},
+{"id": 47, "title": "NICE Cybersecurity Workforce Framework (NICE Framework)", "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center", "category": "Graphic", "description": "Graphic map of National Initiative for Cybersecurity Education (NICE) Cybersecurity Workforce Framework", "price": "Free"},
+{"id": 48, "title": "Cybersecurity Career Map", "url": "https://www.cyberseek.org/pathway.html", "category": "Graphic", "description": "Interactive map showing career pathways in cybersecurity", "price": "Free"},
+{"id": 49, "title": "MITRE ATT&CK Framework Navigator", "url": "https://mitre-attack.github.io/attack-navigator/", "category": "Graphic", "description": "Web-based tool for MITRE ATT&CK framework visualizations", "price": "Free"},
+{"id": 50, "title": "Krebs On Security In depth security news and investigation", "url": "https://krebsonsecurity.com/", "category": "News", "description": "", "price": "Free"},
+{"id": 51, "title": "Dark Reading", "url": "https://www.darkreading.com/", "category": "News", "description": "Cyber security's comprehensive news site is now an online community for security professionals.", "price": "Free"},
+{"id": 52, "title": "The Hacker News", "url": "https://thehackernews.com/", "category": "News", "description": "The Hacker News (THN) is a leading, trusted, widely-acknowledged dedicated cybersecurity news platform, attracting over 8 million monthly readers including IT professionals, researchers, hackers, technologists, and enthusiasts.", "price": "Free"},
+{"id": 53, "title": "SecuriTeam", "url": "https://securiteam.com/", "category": "News", "description": "A free and independent source of vulnerability information.", "price": "Free"},
+{"id": 54, "title": "SANS NewsBites", "url": "https://www.sans.org/newsletters/newsbites/", "category": "News", "description": "", "price": "Free"},
+{"id": 55, "title": "Daily Cyber Threat Brief", "url": "https://simplycyber.io/streams", "category": "News", "description": "Simply Cyber Daily Threat Brief Streams. Weekdays around 9am EST", "price": "Free"},
+{"id": 56, "title": "Cybersecurity Community Discord", "url": "https://discord.gg/C8mtwCPuXq", "category": "Professional Networking", "description": "", "price": "Free"},
+{"id": 57, "title": "Metasploit Slack", "url": "https://metasploit.com/slack", "category": "Professional Networking", "description": "", "price": "Free"},
+{"id": 58, "title": "NahamSec Discord", "url": "https://discord.gg/FWykjNy", "category": "Professional Networking", "description": "", "price": "Free"},
+{"id": 59, "title": "InfoSec People Discord", "url": "https://discord.com/invite/RHZ7UF7", "category": "Professional Networking", "description": "", "price": "Free"},
+{"id": 60, "title": "Outpost Gray Discord", "url": "https://discord.gg/invite/859Zvrm", "category": "Professional Networking", "description": "", "price": "Free"},
+{"id": 61, "title": "The Taggart Institute", "url": "https://discord.gg/bDdgyaV", "category": "Professional Networking", "description": "", "price": "Free"},
+{"id": 62, "title": "OWASP Slack", "url": "https://owasp.slack.com/", "category": "Professional Networking", "description": "", "price": "Free"},
+{"id": 63, "title": "HackTheBox Discord", "url": "https://rishi28.typeform.com/to/sTbTI8", "category": "Professional Networking", "description": "", "price": "Free"},
+{"id": 64, "title": "Security HQ Slack", "url": "https://securityhq.herokuapp.com/", "category": "Professional Networking", "description": "", "price": "Free"},
+{"id": 65, "title": "CentralSec Slack", "url": "https://launchpass.com/centralsec", "category": "Professional Networking", "description": "", "price": "Free"},
+{"id": 66, "title": "PentestPractice Slack", "url": "https://pentestpractice.slack.com/", "category": "Professional Networking", "description": "", "price": "Free"},
+{"id": 67, "title": "CyberSec Mentorship Slack", "url": "https://cybersecmentorship.org/", "category": "Professional Networking", "description": "", "price": "Free"},
+{"id": 68, "title": "CyberSeek", "url": "https://www.cyberseek.org/heatmap.html", "category": "Tools", "description": "Interactive heatmap of cybersecurity workforce supply and demand", "price": "Free"},
+{"id": 69, "title": "VirusTotal", "url": "https://www.virustotal.com/gui/", "category": "Tools", "description": "Analyze suspicious files, domains, IPs and URLs to detect malware and other breaches", "price": "Free"},
+{"id": 70, "title": "AnyRun", "url": "https://any.run/", "category": "Tools", "description": "Interactive online malware analysis sandbox", "price": "Free"},
+{"id": 71, "title": "Privilege Escalation Toolkit", "url": "https://github.com/Ignitetechnologies/Privilege-Escalation", "category": "Tools", "description": "", "price": "Free"},
+{"id": 72, "title": "Awesome Malware Analysis", "url": "https://github.com/rshipp/awesome-malware-analysis", "category": "Tools", "description": "A curated list of awesome malware analysis tools and resources", "price": "Free"},
+{"id": 73, "title": "Analyzing Malicious Documents", "url": "https://zeltser.com/analyzing-malicious-documents/", "category": "Tools", "description": "", "price": "Free"},
+{"id": 74, "title": "Reverse Engineering Cheat Sheet", "url": "https://www.cybrary.it/wp-content/uploads/2017/11/cheat-sheet-reverse-v6.pn", "category": "Tools", "description": "", "price": "Free"},
+{"id": 75, "title": "Nmap Cheat Sheet", "url": "https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/", "category": "Tools", "description": "", "price": "Free"},
+{"id": 76, "title": "LFI Cheat Sheet", "url": "https://highon.coffee/blog/lfi-cheat-sheet/", "category": "Tools", "description": "", "price": "Free"},
+{"id": 77, "title": "Penetration Testing Tools Cheat Sheet", "url": "https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/", "category": "Tools", "description": "", "price": "Free"},
+{"id": 78, "title": "NBTscan Cheat Sheet", "url": "https://highon.coffee/blog/nbtscan-cheat-sheet/", "category": "Tools", "description": "", "price": "Free"},
+{"id": 79, "title": "VIM Cheat Sheet", "url": "https://highon.coffee/blog/vim-cheatsheet/", "category": "Tools", "description": "", "price": "Free"},
+{"id": 80, "title": "Systemd Cheat Sheet", "url": "https://highon.coffee/blog/systemd-cheat-sheet/", "category": "Tools", "description": "", "price": "Free"},
+{"id": 81, "title": "Linux Commands Cheat Sheet", "url": "https://highon.coffee/blog/linux-commands-cheat-sheet/", "category": "Tools", "description": "", "price": "Free"},
+{"id": 82, "title": "Nmap Tutorial", "url": "https://highon.coffee/blog/nmap-cheat-sheet/", "category": "Tools", "description": "", "price": "Free"},
+{"id": 83, "title": "AttackTools CyberRange", "url": "https://lab.yoursmtp.com/", "category": "Tools", "description": "", "price": "Free"},
+{"id": 84, "title": "Wireshark Tutorial", "url": "https://www.malware-traffic-analysis.net/tutorials/wireshark/index.html", "category": "Tools", "description": "Tutorial and practice PCAP files for learning Wireshark", "price": "Free"},
+{"id": 85, "title": "CyberDefenders", "url": "https://cyberdefenders.org/", "category": "Tools", "description": "Blue team CTF challenges for training in digital forensics and incident response", "price": "Free"},
+{"id": 86, "title": "Blue Team Labs Online", "url": "https://blueteamlabs.online/", "category": "Tools", "description": "Training platform for defensive security, incident response, and threat hunting", "price": "Free"},
+{"id": 87, "title": "Autopsy Digital Forensics", "url": "https://www.autopsy.com/", "category": "Tools", "description": "Free, open-source digital forensics platform", "price": "Free"},
+{"id": 88, "title": "YARA Rules", "url": "https://yara.readthedocs.io/en/stable/", "category": "Tools", "description": "Pattern matching tool for malware researchers", "price": "Free"},
+{"id": 89, "title": "urlscan.io", "url": "https://urlscan.io/", "category": "Tools", "description": "A sandbox for the web - scan and analyze URLs for threats", "price": "Free"},
+{"id": 90, "title": "abuse.ch", "url": "https://abuse.ch/", "category": "Tools", "description": "Fighting malware and botnets - threat intelligence feeds", "price": "Free"},
+{"id": 91, "title": "SOC Analyst Toolkit", "url": "https://soc.analyst.academy/", "category": "Tools", "description": "Collection of tools and resources for SOC analysts", "price": "Free"},
+{"id": 92, "title": "Uncoder.IO", "url": "https://uncoder.io/", "category": "Tools", "description": "Universal Sigma Rule Converter for SIEM", "price": "Free"},
+{"id": 93, "title": "Sigma Rules", "url": "https://github.com/SigmaHQ/sigma", "category": "Tools", "description": "Generic Signature Format for SIEM Systems", "price": "Free"},
+{"id": 94, "title": "LOLBAS", "url": "https://lolbas-project.github.io/", "category": "Tools", "description": "Living Off The Land Binaries and Scripts", "price": "Free"},
+{"id": 95, "title": "GTFOBins", "url": "https://gtfobins.github.io/", "category": "Tools", "description": "Curated list of Unix binaries for security bypass", "price": "Free"},
+{"id": 96, "title": "CyberChef", "url": "https://gchq.github.io/CyberChef/", "category": "Tools", "description": "The Cyber Swiss Army Knife - encoding, encryption, compression", "price": "Free"},
+{"id": 97, "title": "OSINT Framework", "url": "https://osintframework.com/", "category": "Tools", "description": "Collection of OSINT tools organized by category", "price": "Free"},
+{"id": 98, "title": "Shodan", "url": "https://www.shodan.io/", "category": "Tools", "description": "Search engine for Internet-connected devices", "price": "Free"},
+{"id": 99, "title": "Podcast: Darknet Diaries", "url": "https://darknetdiaries.com/", "category": "Podcasts", "description": "True stories from the dark side of the Internet", "price": "Free"},
+{"id": 100, "title": "Cyber Motherboard", "url": "https://podcasts.apple.com/us/podcast/cyber/id1441708044", "category": "Podcasts", "description": "Ben Makuch is the host of the podcast CYBER and weekly talks to Motherboard reporters Lorenzo Franceschi-Bicchierai and Joseph Cox. They tackle topics about famous hackers and researchers about the biggest news in cybersecurity.", "price": "Free"},
+{"id": 101, "title": "Hak5", "url": "https://shop.hak5.org/pages/videos", "category": "Podcasts", "description": "Hak5 is a brand that is created by a group of security professionals, hardcore gamers and \"IT ninjas\". Their podcast, which is mostly uploaded on YouTube discusses everything from open-source software to penetration testing and network infrastructure.", "price": "Free"},
+{"id": 102, "title": "Threatpost Podcast Series", "url": "https://threatpost.com/category/podcasts/", "category": "Podcasts", "description": "", "price": "Free"},
+{"id": 103, "title": "CISO Series Podcast", "url": "https://cisoseries.com/", "category": "Podcasts", "description": "", "price": "Free"},
+{"id": 104, "title": "Getting Into Infosec Podcast", "url": "https://www.gettingintoinfosec.com/", "category": "Podcasts", "description": "", "price": "Free"},
+{"id": 105, "title": "Unsupervised Learning", "url": "https://danielmiessler.com/podcast/", "category": "Podcasts", "description": "", "price": "Free"},
+{"id": 106, "title": "Cyber Security Headlines (CISO Series)", "url": "https://cisoseries.com/category/podcast/cyber-security-headlines/", "category": "Podcasts", "description": "", "price": "Free"},
+{"id": 107, "title": "Monica Talks Cyber", "url": "https://monicatalkscyber.com/podcasts", "category": "Podcasts", "description": "", "price": "Free"},
+{"id": 108, "title": "Journey Into Cybersecurity", "url": "https://www.thetrianglenet.com/journey-into-cybersecurity/", "category": "Podcasts", "description": "", "price": "Free"},
+{"id": 109, "title": "Security Weekly", "url": "https://securityweekly.com/category-shows/tradecraft-security-weekly/", "category": "Podcasts", "description": "", "price": "Free"},
+{"id": 110, "title": "Simply Cyber with Gerald Auger", "url": "https://www.youtube.com/GeraldAuger", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 111, "title": "Cyber Insecurity", "url": "https://www.youtube.com/CyberInsecurity", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 112, "title": "Outpost Gray", "url": "https://www.youtube.com/OutpostGray/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 113, "title": "Josh Madakor", "url": "https://www.youtube.com/JoshMadakor/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 114, "title": "IppSec", "url": "https://www.youtube.com/ippsec/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 115, "title": "Derek Rook", "url": "https://www.youtube.com/DerekRook", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 116, "title": "Irongeek", "url": "https://www.youtube.com/user/irongeek", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 117, "title": "LionSec", "url": "https://www.youtube.com/LionSec", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 118, "title": "Zer0Mem0ry", "url": "https://www.youtube.com/Zer0Mem0ry", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 119, "title": "webpwnized", "url": "https://www.youtube.com/webpwnized/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 120, "title": "Troy Hunt", "url": "https://www.youtube.com/troyhuntdotcom/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 121, "title": "SSTec Tutorials", "url": "https://www.youtube.com/SSTecTutorials/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 122, "title": "Seytonic", "url": "https://www.youtube.com/Seytonic/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 123, "title": "Security Weekly", "url": "https://www.youtube.com/SecurityWeekly//", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 124, "title": "SecureNinjaTV", "url": "https://www.youtube.com/SecureNinjaTV/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 125, "title": "Samy Kamkar", "url": "https://www.youtube.com/SamyKamkar/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 126, "title": "rwbnetsec", "url": "https://www.youtube.com/rwbnetsec/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 127, "title": "Open SecurityTraining", "url": "https://www.youtube.com/OpenSecurityTraining/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 128, "title": "Null Byte", "url": "https://www.youtube.com/NullByteWHT/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 129, "title": "SANS Institute", "url": "https://www.youtube.com/SANSInstitute/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 130, "title": "NetworKing", "url": "https://www.youtube.com/NetworKingInc/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 131, "title": "Nahamsec", "url": "https://www.youtube.com/nahamsec/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 132, "title": "LiveOverflow", "url": "https://www.youtube.com/LiveOverflow/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 133, "title": "John Hammond", "url": "https://www.youtube.com/JohnHammond010/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 134, "title": "InsiderPHD", "url": "https://www.youtube.com/InsiderPhD/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 135, "title": "HackerSploit", "url": "https://www.youtube.com/HackerSploit/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 136, "title": "HackerOne", "url": "https://www.youtube.com/HackerOne/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 137, "title": "Hacking Simplified", "url": "https://www.youtube.com/HackingSimplifiedAS/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 138, "title": "GynvaelEN", "url": "https://www.youtube.com/GynvaelEN/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 139, "title": "DC CyberSec", "url": "https://www.youtube.com/DCcybersec/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 140, "title": "Cyber CDH", "url": "https://www.youtube.com/CyberCDH/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 141, "title": "STOK", "url": "https://www.youtube.com/STOKfredrik/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 142, "title": "Bugcrowd", "url": "https://www.youtube.com/Bugcrowd/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 143, "title": "Black Hat", "url": "https://www.youtube.com/BlackHat/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 144, "title": "13Cubed", "url": "https://www.youtube.com/13Cubed/", "category": "Youtube", "description": "", "price": "Free"},
+{"id": 145, "title": "HackTheBox", "url": "https://www.hackthebox.eu/", "category": "Training", "description": "", "price": "Free"},
+{"id": 146, "title": "TryHackMe", "url": "https://tryhackme.com/", "category": "Training", "description": "", "price": "Free"},
+{"id": 147, "title": "CodeAcademy", "url": "https://www.codecademy.com/", "category": "Training", "description": "", "price": "Free"},
+{"id": 148, "title": "Immersive Labs", "url": "https://dca.immersivelabs.com/", "category": "Training", "description": "", "price": "Free"},
+{"id": 149, "title": "OverTheWire", "url": "https://overthewire.org/wargames/", "category": "Training", "description": "", "price": "Free"},
+{"id": 150, "title": "PentestIT LAB", "url": "https://lab.pentestit.ru", "category": "Training", "description": "", "price": "Free"},
+{"id": 151, "title": "PicoCTF", "url": "https://picoctf.com", "category": "Training", "description": "", "price": "Free"},
+{"id": 152, "title": "PWNABLE", "url": "https://pwnable.kr/play.php", "category": "Training", "description": "", "price": "Free"},
+{"id": 153, "title": "Root-Me", "url": "https://www.root-me.org/", "category": "Training", "description": "", "price": "Free"},
+{"id": 154, "title": "SANS Challenger", "url": "https://www.holidayhackchallenge.com/", "category": "Training", "description": "", "price": "Free"},
+{"id": 155, "title": "SmashTheStack", "url": "https://smashthestack.org/wargames.html", "category": "Training", "description": "", "price": "Free"},
+{"id": 156, "title": "The Cryptopals Crypto Challenges", "url": "https://cryptopals.com/", "category": "Training", "description": "", "price": "Free"},
+{"id": 157, "title": "Vulnhub", "url": "https://www.vulnhub.com", "category": "Training", "description": "", "price": "Free"},
+{"id": 158, "title": "W3Challs", "url": "https://w3challs.com/", "category": "Training", "description": "", "price": "Free"},
+{"id": 159, "title": "WeChall", "url": "https://www.wechall.net/", "category": "Training", "description": "", "price": "Free"},
+{"id": 160, "title": "Professor Messer", "url": "https://professormesser.com/", "category": "Training", "description": "Lots of different Certification Courses", "price": "Free"},
+{"id": 161, "title": "A+ Certification 1000", "url": "https://www.professormesser.com/free-a-plus-training/220-1001/220-1000-training-course/", "category": "Training", "description": "Professor Messer's CompTIA 220-1001 and 220-1002 A+ Training Course", "price": "Free"},
+{"id": 162, "title": "A+ Certification 1001", "url": "https://www.professormesser.com/free-a-plus-training/a-plus-videos/220-1001-training-course//", "category": "Training", "description": "Professor Messer's 220-1001 Core 1 CompTIA A+ Training Course", "price": "Free"},
+{"id": 163, "title": "A+ Certification 1002", "url": "https://www.professormesser.com/free-a-plus-training/a-plus-videos/220-1002-training-course/", "category": "Training", "description": "Professor Messer's CompTIA 220-1002 Core 2 A+ Training Course", "price": "Free"},
+{"id": 164, "title": "Network+ Certification", "url": "https://www.professormesser.com/network-plus/n10-008/n10-008-video/n10-008-training-course/", "category": "Training", "description": "Professor Messer's CompTIA N10-008 Network+ Course", "price": "Free"},
+{"id": 165, "title": "Security+ Certification", "url": "https://www.professormesser.com/security-plus/sy0-601/sy0-601-video/sy0-601-comptia-security-plus-course/", "category": "Training", "description": "Professor Messer's CompTIA SY0-601 Security+ Course", "price": "Free"},
+{"id": 166, "title": "Google SRE Books", "url": "https://landing.google.com/sre/books/", "category": "Books", "description": "", "price": "Free"},
+{"id": 167, "title": "Security Engineering", "url": "https://www.cl.cam.ac.uk/~rja14/book.html", "category": "Books", "description": "", "price": "Free"},
+{"id": 168, "title": "Building Virtual Machine Labs", "url": "https://payhip.com/b/PdkW", "category": "Books", "description": "", "price": "Free"},
+{"id": 169, "title": "A Beginner's Guide to Information Security", "url": "https://www.amazon.com/Beginners-Guide-Information-Security-Kickstart-ebook/dp/B01JTDDSAM", "category": "Books", "description": "", "price": "Free"},
+{"id": 170, "title": "DHS Cybersecurity Training", "url": "https://teex.org/program/dhs-cybersecurity/", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 171, "title": "CS Video Courses", "url": "https://github.com/Developer-Y/cs-video-courses?utm_source=share&utm_medium=ios_app&utm_name=iossmf", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 172, "title": "MIT OpenCourseWare - Computer Science", "url": "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 173, "title": "Stanford Online", "url": "https://online.stanford.edu/free-courses", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 174, "title": "National University - Cybersecurity Courses", "url": "https://www.nu.edu/our-programs/college-of-professional-studies/cybersecurity-and-information-assurance/", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 175, "title": "University of Maryland -  Introduction to Cybersecurity Specialization", "url": "https://www.coursera.org/specializations/intro-cyber-security", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 176, "title": "IBM Cybersecurity Analyst Certificate", "url": "https://www.coursera.org/professional-certificates/ibm-cybersecurity-analyst", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 177, "title": "Cybersecurity Course - Michigan (Coursera)", "url": "https://www.coursera.org/learn/usable-security", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 178, "title": "Cybersecurity Course - Maryland (Coursera)", "url": "https://www.coursera.org/learn/crypto", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 179, "title": "Cybersecurity for Business Specialization - Colorado (Coursera)", "url": "https://www.coursera.org/specializations/cyber-security-business", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 180, "title": "Introduction to Cyber Attacks - NYU (Coursera)", "url": "https://www.coursera.org/learn/intro-cyber-attacks", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 181, "title": "Introduction to Cyber Security Specialization - NYU (Coursera)", "url": "https://www.coursera.org/specializations/intro-cyber-security", "category": "College Courses", "description": "This Specialization from the New York University (NYU) Tandon School of Engineering focuses on introducing learners to the field of cybersecurity through an interdisciplinary set of courses", "price": "Free"},
+{"id": 182, "title": "Computer Security and Systems Management Specialization - Colorado (Coursera)", "url": "https://www.coursera.org/specializations/computer-security-systems-management", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 183, "title": "Cyber Threats and Attack Vectors (Coursera)", "url": "https://www.coursera.org/learn/cyber-threats-attack-vectors", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 184, "title": "Palo Alto Networks Academy", "url": "https://www.paloaltonetworks.com/services/education", "category": "College Courses", "description": "", "price": "Free"},
+{"id": 185, "title": "VetSec", "url": "https://veteransec.com/", "category": "Veterans", "description": "Community for military veterans and transitioning service members in cybersecurity", "price": "Free"},
+{"id": 186, "title": "VET TEC", "url": "https://www.va.gov/education/about-gi-bill-benefits/how-to-use-benefits/vettec-high-tech-program/", "category": "Veterans", "description": "", "price": "Free"},
+{"id": 187, "title": "CyberVetsUSA", "url": "https://www.cybervetsusa.org/", "category": "Veterans", "description": "Career training and mentorship for military veterans interested in cybersecurity", "price": "Free"},
+{"id": 188, "title": "SANS VetSuccess Immersion Academy", "url": "https://www.sans.org/partnerships/vetsuccess/", "category": "Veterans", "description": "", "price": "Free"},
+{"id": 189, "title": "Federal Virtual Training Environment", "url": "https://fedvte.usalearning.gov/", "category": "Veterans", "description": "Free cybersecurity training available to government employees and veterans", "price": "Free"},
+{"id": 190, "title": "Hire Our Heroes", "url": "https://www.hiringourheroes.org/", "category": "Veterans", "description": "Fellowship programs and hiring events connecting veterans with employment opportunities", "price": "Free"},
+{"id": 191, "title": "Microsoft Software & Systems Academy (MSSA)", "url": "https://military.microsoft.com/mssa/", "category": "Veterans", "description": "Free training and career support for transitioning service members and veterans", "price": "Free"},
+{"id": 192, "title": "Cybersecurity and Infrastructure Security Agency (CISA) Veterans Resources", "url": "https://www.cisa.gov/veterans", "category": "Veterans", "description": "", "price": "Free"},
+{"id": 193, "title": "WithYouWithMe", "url": "https://www.withyouwithme.com/", "category": "Veterans", "description": "Digital workforce platform connecting veterans with tech careers", "price": "Free"},
+{"id": 194, "title": "Operation Code", "url": "https://operationcode.org/", "category": "Veterans", "description": "Open source community for military veterans and families learning software development and tech", "price": "Free"},
+{"id": 195, "title": "Coding for Veterans", "url": "https://www.codingforveterans.com/", "category": "Veterans", "description": "Tech training programs designed specifically for veterans transitioning to civilian careers", "price": "Free"},
+{"id": 196, "title": "BreakLine Education", "url": "https://breakline.org/", "category": "Veterans", "description": "Career accelerator for veterans and underrepresented communities in tech", "price": "Free"},
+{"id": 197, "title": "Divergence Academy for Veterans", "url": "https://www.divergence.one/veterans", "category": "Veterans", "description": "Cybersecurity training with veteran-specific support and career placement", "price": "Free"},
+{"id": 198, "title": "AWS re/Start for Veterans", "url": "https://aws.amazon.com/training/restart/", "category": "Veterans", "description": "Free cloud skills training program with veteran pathways", "price": "Free"},
+{"id": 199, "title": "ITProTV (ACI Learning) for Veterans", "url": "https://www.acilearning.com/veterans/", "category": "Veterans", "description": "IT certification training resources available for veterans", "price": "Free"},
+{"id": 200, "title": "AWS Cloud Certified Get skills in AWS to be more marketable.", "url": "https://www.youtube.com/watch?v=3hLmDS179YE", "category": "Training", "description": "Training is quality and free. Have to create an AWS account, Exam is $100.", "price": "Free"},
+{"id": 201, "title": "SANS Faculty Free Tools List of OSS developed by SANS staff.", "url": "https://www.sans.org/media/free/free-faculty-tools.pdf?msc=sans-free-lp", "category": "Training", "description": "", "price": "Free"},
+{"id": 202, "title": "Using ATT&CK for Cyber Threat Intelligence Training", "url": "https://attack.mitre.org/resources/training/cti/", "category": "Training", "description": "4 hour training The goal of this training is for students to understand the following:", "price": "Free"},
+{"id": 203, "title": "Coursera -Coursera Together: Free online learning during COVID-19", "url": "https://blog.coursera.org/coursera-together-free-online-learning-during-covid-19/", "category": "Training", "description": "Lots of different types of free training.", "price": "Free"},
+{"id": 204, "title": "Fortinet Security Appliance Training", "url": "https://www.fortinet.com/training/cybersecurity-professionals.html", "category": "Training", "description": "Free access to the FortiGate Essentials Training Course and Network Security Expert courses 1 and 2.", "price": "Free"},
+{"id": 205, "title": "Chief Information Security Officer (CISO) Workshop Training", "url": "https://docs.microsoft.com/en-us/security/ciso-workshop/ciso-workshop", "category": "Training", "description": "", "price": "Free"},
+{"id": 206, "title": "CLARK - Cybersecurity Labs and Resource Knowledge-base", "url": "https://clark.center/home", "category": "Training", "description": "", "price": "Free"},
+{"id": 207, "title": "Hacker101", "url": "https://www.hacker101.com/", "category": "Training", "description": "Free class for web security", "price": "Free"},
+{"id": 208, "title": "Elastic Training", "url": "https://training.elastic.co/learn-from-home", "category": "Training", "description": "", "price": "Free"},
+{"id": 209, "title": "Hopper's Roppers", "url": "https://www.hoppersroppers.org/training.html", "category": "Training", "description": "", "price": "Free"},
+{"id": 210, "title": "IBM Security Learning Academy", "url": "https://www.securitylearningacademy.com/", "category": "Training", "description": "", "price": "Free"},
+{"id": 211, "title": "M.E. Kabay", "url": "https://www.mekabay.com/courses/index.htm", "category": "Training", "description": "", "price": "Free"},
+{"id": 212, "title": "Udemy Free Courses", "url": "https://www.udemy.com/courses/free/", "category": "Training", "description": "", "price": "Free"},
+{"id": 213, "title": "Cisco Networking Academy", "url": "https://www.netacad.com/courses/programming/pcap-programming-essentials-python", "category": "Training", "description": "", "price": "Free"},
+{"id": 214, "title": "Python Course - Socratica", "url": "https://www.youtube.com/watch?v=V9agUAz0DwI", "category": "Training", "description": "", "price": "Free"},
+{"id": 215, "title": "Learn Python - Joe James", "url": "https://www.youtube.com/watch?v=544rhbcDtc8", "category": "Training", "description": "", "price": "Free"},
+{"id": 216, "title": "Kill Chain: The Cyber War on America's Elections", "url": "https://www.hbo.com/documentaries/kill-chain-the-cyber-war-on-americas-elections", "category": "Training", "description": "", "price": "Free"},
+{"id": 217, "title": "Pluralsight Free Azure Courses", "url": "https://www.pluralsight.com/partners/microsoft/azure", "category": "Training", "description": "", "price": "Free"},
+{"id": 218, "title": "Black Hat Webcast", "url": "https://www.blackhat.com/html/webcast/webcast-home.html", "category": "Training", "description": "", "price": "Free"},
+{"id": 219, "title": "Federal Virtual Training Environment (FedVTE)", "url": "https://fedvte.usalearning.gov/public_fedvte.cfm", "category": "Training", "description": "", "price": "Free"},
+{"id": 220, "title": "Enroll in the CNSP (Certified Network Security Practitioner)", "url": "https://secops.group/certifications/", "category": "Training", "description": "", "price": "Free"},
+{"id": 221, "title": "Mosse Cyber Security Institute", "url": "https://www.mosse-institute.com/", "category": "Training", "description": "", "price": "Free"},
+{"id": 222, "title": "LetsDefend", "url": "https://app.letsdefend.io/", "category": "Training", "description": "", "price": "Free"},
+{"id": 223, "title": "RangeForce Community Edition", "url": "https://go.rangeforce.com/community-edition-registration", "category": "Training", "description": "", "price": "Free"},
+{"id": 224, "title": "Cloud Security Alliance (CSA)", "url": "https://cloudsecurityalliance.org/education/", "category": "Training", "description": "", "price": "Free"},
+{"id": 225, "title": "PortSwigger Web Security Academy", "url": "https://portswigger.net/web-security", "category": "Training", "description": "Free, online web security training from the creators of Burp Suite", "price": "Free"},
+{"id": 226, "title": "Springboard - Intro to Cybersecurity", "url": "https://www.springboard.com/resources/learning-paths/cybersecurity-foundations/", "category": "Training", "description": "", "price": "Free"},
+{"id": 227, "title": "DFIR Training", "url": "https://www.dfir.training/", "category": "Training", "description": "Digital forensics and incident response training resources", "price": "Free"},
+{"id": 228, "title": "OpenSecurityTraining2", "url": "https://opensecuritytraining.info/", "category": "Training", "description": "", "price": "Free"},
+{"id": 229, "title": "AttackIQ Academy", "url": "https://www.academy.attackiq.com/", "category": "Training", "description": "Free courses on breach and attack simulation", "price": "Free"},
+{"id": 230, "title": "TCM Security Academy", "url": "https://academy.tcm-sec.com/", "category": "Training", "description": "Practical ethical hacking and security courses", "price": "Free"},
+{"id": 231, "title": "Microsoft Learn - Security", "url": "https://docs.microsoft.com/en-us/learn/browse/?terms=security", "category": "Training", "description": "", "price": "Free"},
+{"id": 232, "title": "AWS Skill Builder", "url": "https://explore.skillbuilder.aws/learn", "category": "Training", "description": "Free AWS cloud training and certification prep", "price": "Free"},
+{"id": 233, "title": "Google Cloud Skills Boost", "url": "https://www.cloudskillsboost.google/", "category": "Training", "description": "Google Cloud training with hands-on labs", "price": "Free"},
+{"id": 234, "title": "INE Free Starter Pass", "url": "https://my.ine.com/area/free-courses", "category": "Training", "description": "", "price": "Free"},
+{"id": 235, "title": "Antisyphon Training - Pay What You Can", "url": "https://www.antisyphontraining.com/", "category": "Training", "description": "Affordable cybersecurity training with pay what you can model", "price": "Free"},
+{"id": 236, "title": "National Cyber League (NCL)", "url": "https://nationalcyberleague.org/", "category": "Training", "description": "Cybersecurity competition for students", "price": "Free"},
+{"id": 237, "title": "Splunk Free Training", "url": "https://www.splunk.com/en_us/training/free-courses/overview.html", "category": "Training", "description": "Free Splunk training courses and certifications", "price": "Free"},
+{"id": 238, "title": "Active Countermeasures Training", "url": "https://www.activecountermeasures.com/training/", "category": "Training", "description": "Free network threat hunting training", "price": "Free"},
+{"id": 239, "title": "Blue Team Academy", "url": "https://www.youracclaim.com/organizations/blue-team-academy", "category": "Training", "description": "", "price": "Free"},
+{"id": 240, "title": "The Cyber Mentor (Heath Adams)", "url": "https://www.thecybermentor.com/", "category": "Training", "description": "Practical ethical hacking resources and courses", "price": "Free"},
+{"id": 241, "title": "SANS Cyber Aces Online", "url": "https://www.cyberaces.org/", "category": "Training", "description": "Free online cybersecurity courses from SANS", "price": "Free"},
+{"id": 242, "title": "CyberPatriot", "url": "https://www.uscyberpatriot.org/", "category": "Training", "description": "Youth cyber defense competition and education program", "price": "Free"},
+{"id": 243, "title": "National Cyber Scholarship Foundation", "url": "https://www.nationalcyberscholarship.org/", "category": "Training", "description": "", "price": "Free"},
+{"id": 244, "title": "Virtual Hacking Labs", "url": "https://www.virtualhackinglabs.com/", "category": "Training", "description": "Penetration testing lab environment", "price": "Free"},
+{"id": 245, "title": "CyberWarrior Academy", "url": "https://www.youracclaim.com/organizations/cyberwarrior-academy", "category": "Training", "description": "Cybersecurity bootcamp with veteran pathways", "price": "Free"}
+];
+
+// Function to get category color
+function getCategoryColor(category) {
+  const colors = {
+    'All Around Defender Primers': 'bg-blue-100 text-blue-800',
+    'Books': 'bg-purple-100 text-purple-800',
+    'Certifications': 'bg-indigo-100 text-indigo-800',
+    'Cheat Sheets': 'bg-green-100 text-green-800',
+    'Cloud Security': 'bg-cyan-100 text-cyan-800',
+    'College Courses': 'bg-orange-100 text-orange-800',
+    'Digital Forensics and Incident Response': 'bg-red-100 text-red-800',
+    'Graphic': 'bg-pink-100 text-pink-800',
+    'News': 'bg-yellow-100 text-yellow-800',
+    'Podcasts': 'bg-teal-100 text-teal-800',
+    'Professional Networking': 'bg-violet-100 text-violet-800',
+    'Tools': 'bg-emerald-100 text-emerald-800',
+    'Training': 'bg-lime-100 text-lime-800',
+    'Veterans': 'bg-slate-100 text-slate-800',
+    'Youtube': 'bg-red-100 text-red-800'
+  };
+  return colors[category] || 'bg-gray-100 text-gray-800';
+}
+
+// Function to render resource card
+function renderCard(resource) {
+  const description = resource.description ? `<p class="text-on-surface-variant text-sm leading-relaxed mb-4">${resource.description}</p>` : '';
+  const categoryColor = getCategoryColor(resource.category);
+
+  return `
+    <div class="resource-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/5 hover:shadow-xl transition-all flex flex-col justify-between" data-category="${resource.category}" data-title="${resource.title.toLowerCase()}" data-description="${resource.description.toLowerCase()}">
+      <div>
+        <div class="flex justify-between items-start mb-4">
+          <span class="text-primary-container text-xs font-bold ${categoryColor} px-3 py-1 rounded-full">#${resource.category}</span>
+          <span class="text-[10px] font-bold text-outline uppercase tracking-widest">${resource.price}</span>
+        </div>
+        <h3 class="text-lg font-bold font-headline mb-2 leading-tight text-on-surface">${resource.title}</h3>
+        ${description}
+      </div>
+      <a href="${resource.url}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all mt-4">
+        Learn More <span class="material-symbols-outlined text-lg">chevron_right</span>
+      </a>
+    </div>
+  `;
+}
+
+// Function to render all resources
+function renderAllResources(filter = 'all', searchTerm = '') {
+  const container = document.getElementById('resourcesContainer');
+  const searchLower = searchTerm.toLowerCase();
+
+  let filtered = resources;
+
+  // Apply category filter
+  if (filter !== 'all') {
+    filtered = filtered.filter(r => r.category === filter);
+  }
+
+  // Apply search filter
+  if (searchTerm) {
+    filtered = filtered.filter(r =>
+      r.title.toLowerCase().includes(searchLower) ||
+      r.description.toLowerCase().includes(searchLower)
+    );
+  }
+
+  container.innerHTML = filtered.map(r => renderCard(r)).join('');
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+  // Render all resources initially
+  renderAllResources();
+
+  // Category filter functionality
+  const categoryButtons = document.querySelectorAll('.category-filter');
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const category = this.getAttribute('data-category');
+
+      // Update active state
+      categoryButtons.forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-on-primary');
+        btn.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+      });
+
+      this.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+      this.classList.add('bg-primary', 'text-on-primary');
+
+      // Re-render with filter
+      const searchTerm = document.getElementById('searchInput').value;
+      renderAllResources(category, searchTerm);
+    });
+  });
+
+  // Search functionality
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', function() {
+    const activeCategory = document.querySelector('.category-filter.bg-primary')?.getAttribute('data-category') || 'all';
+    renderAllResources(activeCategory, this.value);
+  });
+});
+</script>
+</body></html>
