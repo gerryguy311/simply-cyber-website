@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# Defensive: catches accidental literal-`${HOME}` writes from tools that fail to expand the variable
+${HOME}/
