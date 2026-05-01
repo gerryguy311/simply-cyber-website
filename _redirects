@@ -1,0 +1,78 @@
+# Simply Cyber — Cloudflare Pages redirects
+# Migrated from Wix URL Redirect Manager export 2026-04-30 (Gerry).
+# Format: <source> <destination> [status]   (302 = temporary; preserves SEO flexibility)
+# Cloudflare _redirects spec: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# ── Sponsors / partner UTM links ──────────────────────────────────────
+/threatlocker  https://www.threatlocker.com/pages/solutions?utm_campaign=&utm_content=live&utm_medium=sponsor&utm_source=simply_cyber_daily&utm_term=podcast  302
+/ztw           https://www.threatlocker.com/newsletter?utm_campaign=ztw26_q1_26&utm_content=ztw26-&utm_medium=sponsor&utm_source=simply_cyber_daily&utm_term=podcast  302
+/airia         https://airia.com/register/?utm_campaign=q12026&utm_medium=podcast&utm_source=daily_cyber_threat_brief  302
+/AIRIA         https://airia.com/register/?utm_campaign=q12026&utm_medium=podcast&utm_source=daily_cyber_threat_brief  302
+/flare         https://try.flare.io/simplycyber/?utm_campaign=38911566-Simply%20Cyber%20Livestream&utm_medium=Simply%20Cyber&utm_source=Influencers  302
+/material      https://material.security/lp-cloud-office-security?utm_campaign=20260201-simplycyber&utm_medium=website&utm_source=third-party  302
+/itpro         https://go.itpro.tv/simplycyber  302
+/antisyphon    https://www.antisyphontraining.com  302
+/tcm           https://academy.tcm-sec.com/?affcode=770707_ppxx8qqn  302
+/TCM           https://academy.tcm-sec.com/?affcode=770707_ppxx8qqn  302
+/sal1          https://tryhackme.com/certification/security-analyst-level-1?utm_campaign=geraldauger_sal1&utm_medium=social&utm_source=youtube  302
+/deleteme      https://JoinDeleteMe.com/SIMPLYCYBER  302
+/anecdotes     https://www.google.com/url?q=https://www.anecdotes.ai/guides/the-5-step-framework-for-building-grc-agents?utm_source%3DGRCE%26utm_medium%3Dnewsletter%26utm_campaign%3Dagentic-grc%26utm_content%3Dmessage%26utm_term%3Dlow-intent&sa=D&source=calendar&usd=2&usg=AOvVaw02pCjcJxDH0was6GhI6yjI  302
+/islandAInews  https://www.island.io/videos/watch-a-demo-of-islands-ai-protect?utm_campaign=influencer_geraldauger_ai&utm_content=ai_protect_demo&utm_creative_format=sponsored_post&utm_medium=paid_social&utm_source=linkedIn  302
+/paloalto      https://api.cyfluencer.com/s/ep6-inside-the-mind-of-an-insider-threat-unmasking-motivations-with-chris-tillett-21222  302
+
+# ── Social / community ────────────────────────────────────────────────
+/discord       https://discord.gg/hQAgqFqdjP  302
+/Discord       https://discord.gg/hQAgqFqdjP  302
+/community     https://discord.gg/simplycyber  302
+/socials       https://Linktr.ee/SimplyCyber  302
+/Socials       https://linktree.com/simplycyber  302
+/streams       https://www.youtube.com/c/GeraldAuger/streams  302
+/live          https://youtube.com/@simplycyber/live  302
+/learn         https://youtube.com/@simplycyber  302
+/mediagroup    https://www.youtube.com/@SimplyCyber/podcasts  302
+/podcast       https://simplycyber.transistor.fm  302
+/firesides     https://calendly.com/geraldauger/simply-cyber-live-thursdays  302
+/meet          https://calendar.app.google/BRDPqaQWhvRzCjYA8  302
+/schedule      https://luma.com/simplycyber  302
+
+# ── Events ────────────────────────────────────────────────────────────
+/defcon        https://www.eventbrite.com/e/simply-cyber-meetup-during-hacker-summer-camp-tickets-951659327667  302
+/PBCC          https://pbcc.carrd.co  302
+/pbcc          https://pbcc.carrd.co  302
+/Pivot         https://simplycyberpivot.carrd.co  302
+/pivot         https://simplycyberpivot.carrd.co  302
+/badge24       https://scconbadge.carrd.co  302
+/blackhat      https://scblackhat.carrd.co  302
+/BSides        https://drive.google.com/file/d/1Vt1rSQYeiI-qtkpQ5sU8L4DUCKYGrsak/view?usp=sharing  302
+/bsides        https://drive.google.com/file/d/1Vt1rSQYeiI-qtkpQ5sU8L4DUCKYGrsak/view  302
+/wwhf          https://docs.google.com/presentation/d/1yWfF8PQDPnkhf1UOKXwTcXMAbE407MnjwzvBkQMHfwk/edit?usp=sharing  302
+/WWHF          https://docs.google.com/presentation/d/1yWfF8PQDPnkhf1UOKXwTcXMAbE407MnjwzvBkQMHfwk/edit?usp=sharing  302
+/PreWWHF       https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin#:~:text=Click%20Data%20privacy%20on%20the,Select%20Request%20archive.  302
+
+# ── Academy / courses ─────────────────────────────────────────────────
+/academy       https://academy.simplycyber.io  302
+/affiliate     https://academy.simplycyber.io/p/affiliate  302
+/courses       https://simplycyber.teachable.com  302
+/cyber101      https://simplycyber.teachable.com/p/introduction-to-cybersecurity-101  302
+/grc           https://academy.simplycyber.io/p/the-definitive-grc-analyst-program  302
+/standout      https://academy.simplycyber.io/courses/branding-yourself-for-a-cyber-career/lectures/39306760  302
+/teach         https://teachatsimplycyberacademy.carrd.co  302
+/collab        https://simplycybermediagroup.carrd.co  302
+
+# ── Content / decks / resources ───────────────────────────────────────
+/SupplyChain          https://docs.google.com/presentation/d/1qw7zGEIEpFpMouxIRGTrjlJPX8-luSAhh1tz7aCpTSc/edit?usp=sharing  302
+/noob                 https://docs.google.com/document/d/10RkGi0YwdAnoo3SRmBprMtcG6JStfBZaIi41oOgZ3Rg/edit?usp=sharing  302
+/guide                https://academy.simplycyber.io/p/cyber-unlocked-the-ultimate-guide-to-breaking-into-cybersecurity-717153  302
+/book                 https://simplycyberunlocked.crd.co  302
+/newsletter           https://simplycybernews.crd.co  302
+
+# ── Commerce ──────────────────────────────────────────────────────────
+/merch         https://simply-cyber.myspreadshop.com  302
+
+# ── Internal redirects ────────────────────────────────────────────────
+# NOTE: /cybercareerresources → /youmadeit was the Wix mapping. /youmadeit
+#       does NOT exist on the new site yet. This will currently 404.
+#       Action: either create /youmadeit, or redirect /cybercareerresources
+#       to a different page. Leaving as-is until decided.
+/cybercareerresources  /youmadeit  302
+/blank                 /media       302
