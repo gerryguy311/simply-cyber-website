@@ -70,9 +70,9 @@
 /merch         https://simply-cyber.myspreadshop.com  302
 
 # ── Internal redirects ────────────────────────────────────────────────
-# NOTE: /cybercareerresources → /youmadeit was the Wix mapping. /youmadeit
-#       does NOT exist on the new site yet. This will currently 404.
-#       Action: either create /youmadeit, or redirect /cybercareerresources
-#       to a different page. Leaving as-is until decided.
-/cybercareerresources  /youmadeit  302
+# NOTE: Wix had /cybercareerresources -> /youmadeit, but /youmadeit doesn't
+#       exist on the new site. Repointed to /resources/ as the closest match
+#       in spirit (curated free-resources hub). Revert or adjust if Gerry
+#       wants something else.
+/cybercareerresources  /resources/  302
 /blank                 /media       302
