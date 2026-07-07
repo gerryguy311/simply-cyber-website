@@ -3,3 +3,10 @@
 
 # Defensive: catches accidental literal-`${HOME}` writes from tools that fail to expand the variable
 ${HOME}/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
