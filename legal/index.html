@@ -104,45 +104,47 @@
 <body class="bg-surface font-body text-on-surface tracking-readable">
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 glass-nav">
-<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
-<div class="flex items-center gap-2">
-<img alt="Simply Cyber Logo" class="h-12 w-auto object-contain" data-alt="Simply Cyber official brand logo blue" src="/assets/SC_SimplyCyber(OneColourInverse).png"/>
+<div class="flex justify-between items-center w-full gap-6 px-6 py-4 max-w-[1600px] mx-auto">
+<div class="flex items-center gap-2 shrink-0">
+<a href="/"><img alt="Simply Cyber Logo" class="h-12 w-auto object-contain" src="/assets/SC_SimplyCyber(OneColourInverse).png"/></a>
 </div>
-<div class="hidden md:flex items-center gap-5">
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/">Home</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/#latest-initiatives">Latest</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="https://www.youtube.com/@simplycyber" target="_blank" rel="noopener noreferrer">YouTube</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/#grc-masterclass">Courses</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/resources/">Free Resources</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/books/">Books</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/media/">Media</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/collab/">Collaborate</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="https://academy.simplycyber.io/p/blog" target="_blank" rel="noopener noreferrer">Blog</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="https://simplycybercon.org/" target="_blank" rel="noopener noreferrer">Simply Cyber Con</a>
-<a class="text-primary font-bold font-headline tracking-editorial whitespace-nowrap text-sm" href="#">Legal</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/#about-gerald">About</a>
+<div class="hidden min-[1360px]:flex items-center gap-3">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="/">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="https://www.youtube.com/@simplycyber" target="_blank" rel="noopener noreferrer">YouTube</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="https://cyberthreatbrief.simplycyber.io" target="_blank" rel="noopener noreferrer">Threat Brief</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="/#grc-masterclass">Courses</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="/resources/">Free Resources</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="/books/">Books</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="/media/">Media</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="/collab/">Collaborate</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="https://gerald.media" target="_blank" rel="noopener noreferrer">Speaking</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="https://academy.simplycyber.io/p/blog" target="_blank" rel="noopener noreferrer">Blog</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="https://simplycybercon.org/" target="_blank" rel="noopener noreferrer">Simply Cyber Con</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="https://shop.simplycyber.io" target="_blank" rel="noopener noreferrer">Shop</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-[13px]" href="/#about-gerald">About</a>
 </div>
-<div class="flex items-center gap-4">
-<a href="https://academy.simplycyber.io/" target="_blank" rel="noopener noreferrer" class="hidden lg:block px-6 py-2.5 bg-gradient-to-br from-primary-container to-secondary-container text-white font-bold rounded-md active:scale-90 transition-transform">
-                Start Learning Today
-            </a>
-<button class="md:hidden text-on-surface" id="mobile-menu-btn" aria-label="Toggle menu">
+<div class="flex items-center gap-4 shrink-0">
+<a href="https://academy.simplycyber.io/" target="_blank" rel="noopener noreferrer" class="hidden min-[1360px]:block px-5 py-2.5 bg-gradient-to-br from-primary-container to-secondary-container text-white font-bold rounded-md text-sm whitespace-nowrap active:scale-90 transition-transform">Start Learning Today</a>
+<button class="min-[1360px]:hidden text-on-surface" id="mobile-menu-btn" aria-label="Toggle menu">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </div>
 </div>
-<div id="mobile-menu" class="hidden md:hidden bg-surface-container border-t border-outline-variant/15">
+<div id="mobile-menu" class="hidden min-[1360px]:hidden bg-surface-container border-t border-outline-variant/15">
 <div class="flex flex-col px-6 py-4 gap-4">
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/">Home</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="https://www.youtube.com/@simplycyber" target="_blank" rel="noopener noreferrer">YouTube</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/resources/">Free Resources</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/books/">Books</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/media/">Media</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="/collab/">Collaborate</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="https://academy.simplycyber.io/p/blog" target="_blank" rel="noopener noreferrer">Blog</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="https://simplycybercon.org/" target="_blank" rel="noopener noreferrer">Simply Cyber Con</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial whitespace-nowrap text-sm" href="https://www.simplycyber.io/store" target="_blank" rel="noopener noreferrer">Merch</a>
-<a class="text-primary font-bold font-headline tracking-editorial whitespace-nowrap text-sm" href="/legal/">Legal</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="/">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="https://www.youtube.com/@simplycyber" target="_blank" rel="noopener noreferrer">YouTube</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="https://cyberthreatbrief.simplycyber.io" target="_blank" rel="noopener noreferrer">Threat Brief</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="/#grc-masterclass">Courses</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="/resources/">Free Resources</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="/books/">Books</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="/media/">Media</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="/collab/">Collaborate</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="https://gerald.media" target="_blank" rel="noopener noreferrer">Speaking</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="https://academy.simplycyber.io/p/blog" target="_blank" rel="noopener noreferrer">Blog</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="https://simplycybercon.org/" target="_blank" rel="noopener noreferrer">Simply Cyber Con</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="https://shop.simplycyber.io" target="_blank" rel="noopener noreferrer">Shop</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-editorial text-sm" href="/#about-gerald">About</a>
 <a href="https://academy.simplycyber.io/" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 bg-gradient-to-br from-primary-container to-secondary-container text-white font-bold rounded-md text-center">Start Learning Today</a>
 </div>
 </div>
@@ -268,7 +270,7 @@ document.getElementById('mobile-menu-btn').addEventListener('click', function() 
 <div class="space-y-6">
 <h5 class="text-sm font-bold uppercase tracking-widest text-on-surface">Company</h5>
 <ul class="space-y-4">
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="/media/">Media</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="/collab/">Collaborate</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="/media/">Media</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="/collab/">Collaborate</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors text-sm" href="https://gerald.media" target="_blank" rel="noopener noreferrer">Speaking</a></li>
 </ul>
 </div>
 <div class="space-y-6">
