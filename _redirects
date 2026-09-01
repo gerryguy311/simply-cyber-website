@@ -62,7 +62,7 @@
 /grc           https://academy.simplycyber.io/p/the-definitive-grc-analyst-program  302
 /standout      https://academy.simplycyber.io/courses/branding-yourself-for-a-cyber-career/lectures/39306760  302
 /teach         https://teachatsimplycyberacademy.carrd.co  302
-/collab        https://simplycybermediagroup.carrd.co  302
+# /collab is now a real page at collab/index.html (no redirect). Removed 2026-09-01.
 
 # ── Content / decks / resources ───────────────────────────────────────
 /SupplyChain          https://docs.google.com/presentation/d/1qw7zGEIEpFpMouxIRGTrjlJPX8-luSAhh1tz7aCpTSc/edit?usp=sharing  302
