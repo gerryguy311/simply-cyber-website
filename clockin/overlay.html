@@ -103,6 +103,17 @@ body{
   color:rgba(234,242,255,.78);
 }
 .blockline .num{color:var(--magenta)}
+.prompt{color:var(--cyan);letter-spacing:.1em}
+.prompt.urgent{color:var(--gold)}
+.prompt.urgent b{background:var(--gold)}
+.prompt b{
+  color:var(--navy);
+  background:var(--cyan);
+  border-radius:4px;
+  padding:1px calc(6px * var(--f)) 2px;
+  font-weight:800;
+  letter-spacing:.06em;
+}
 
 .room{margin-top:calc(8px * var(--f))}
 .room-track{
@@ -439,7 +450,9 @@ body.noclock .clockwrap{display:none}
       <div class="clocklabel" id="clocklabel">TIME TIL BREAK ROOM</div>
     </div>
 
-    <div class="blockline" id="blockline">SHIFT <span class="num" id="blockNum">#1</span></div>
+    <div class="blockline">
+      <span id="blockText">SHIFT <span class="num" id="blockNum">#1</span></span><span id="promptText" class="prompt"></span>
+    </div>
     <div class="room"><div class="room-track"><div class="room-fill" id="roomFill"></div></div></div>
   </div>
 
@@ -494,6 +507,19 @@ const CONFIG = {
   DOMAIN_LINE: "SIMPLYCYBER.IO",
   CLOCK_LABEL: "TIME TIL BREAK ROOM",
   BLOCK_LABEL: "SHIFT",
+
+  // Standing instruction for anyone arriving mid-shift, so it does not
+  // depend on remembering to pin a chat comment. It shares the SHIFT line
+  // rather than taking its own space: shown briefly, then back to SHIFT #n.
+  // The message changes with the clock: get on the board early, ship it late.
+  // Set both to "" to switch the whole thing off.
+  PROMPT_CLOCKIN: "TYPE  <b>CLOCK IN: your goal</b>  IN CHAT",
+  PROMPT_DONE:    "FINISHED?  TYPE  <b>DONE</b>  TO SHIP IT",
+
+  PROMPT_DONE_LAST_MINUTES: 15,  // when the DONE nudge takes over
+  PROMPT_SECONDS: 6,             // how long it stays up each time
+  PROMPT_EVERY_EARLY: 15,        // cadence in the first 10 min, and in the final stretch
+  PROMPT_EVERY_LATER: 45,        // cadence through the quiet middle
 
   // ---- FOOTPRINT ----
   SHOW_CLOCK: true,   // false if you keep your existing top banner countdown
@@ -1110,7 +1136,8 @@ if (!CONFIG.SHOW_CLOCK) document.body.classList.add("noclock");
 document.getElementById("brand").textContent = CONFIG.BRAND_LINE;
 document.getElementById("domain").textContent = CONFIG.DOMAIN_LINE;
 document.getElementById("clocklabel").textContent = CONFIG.CLOCK_LABEL;
-document.getElementById("blockline").childNodes[0].nodeValue = CONFIG.BLOCK_LABEL + " ";
+document.getElementById("blockText").childNodes[0].nodeValue = CONFIG.BLOCK_LABEL + " ";
+let promptShown = "";
 
 /* ---- restart buttons ---- */
 const ctrl = document.getElementById("ctrl");
@@ -1152,6 +1179,25 @@ function render(){
   setText(clock, fmt(left));
   setClass(clock, "low", left <= 5*60000);
   setText(document.getElementById("blockNum"), "#" + store.block);
+
+  // The SHIFT line hands itself over to an instruction now and then, and
+  // WHICH instruction depends on where we are in the shift:
+  //   early and middle -> how to get on the board
+  //   final stretch    -> how to bank the win you just finished
+  const finalStretch = left <= CONFIG.PROMPT_DONE_LAST_MINUTES * 60000;
+  const promptText = finalStretch ? CONFIG.PROMPT_DONE : CONFIG.PROMPT_CLOCKIN;
+
+  if (promptText){
+    const busy = finalStretch || (Date.now() - START) < 10*60000;
+    const cycle = (busy ? CONFIG.PROMPT_EVERY_EARLY : CONFIG.PROMPT_EVERY_LATER) * 1000;
+    const showPrompt = (Date.now() % cycle) < CONFIG.PROMPT_SECONDS * 1000;
+
+    const el = document.getElementById("promptText");
+    if (promptShown !== promptText){ el.innerHTML = promptText; promptShown = promptText; }
+    setClass(el, "urgent", finalStretch);
+    setDisplay(el, showPrompt);
+    setDisplay(document.getElementById("blockText"), !showPrompt);
+  }
 
   const roster = people.slice(0, CONFIG.MAX_ROWS);
 
