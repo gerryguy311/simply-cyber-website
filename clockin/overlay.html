@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Simply Cyber Focus Block Overlay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   SIMPLY CYBER : FOCUS BLOCK GOAL BOARD
+   OBS browser source overlay. Transparent background.
+   OBS browser source: 480 x 1020 (fills whatever box you give it).
+   ============================================================ */
+
+:root{
+  --magenta:#FF2D78;
+  --cyan:#00E8FF;
+  --purple:#1A0533;
+  --navy:#0B0B2A;
+  --gold:#FFC53D;
+  --ink:#EAF2FF;
+  --muted:#94A8CC;
+  --f:1;      /* global font scale, set from CONFIG.FONT_SCALE */
+  --scale:1;  /* auto shrink applied to rows only, as the room fills */
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:transparent;overflow:hidden}
+body{
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+
+.panel{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(160deg, rgba(11,11,42,.90) 0%, rgba(26,5,51,.90) 100%);
+  border:1px solid rgba(0,232,255,.22);
+  border-radius:14px;
+  box-shadow:0 0 0 1px rgba(255,45,120,.10), 0 18px 50px rgba(0,0,0,.55);
+  overflow:hidden;
+}
+
+/* ---------- header ---------- */
+.head{
+  padding:calc(16px * var(--f)) calc(16px * var(--f)) calc(14px * var(--f));
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(90deg, rgba(255,45,120,.18), rgba(0,232,255,.07) 60%, transparent);
+  flex:0 0 auto;
+  text-align:center;
+}
+
+.brand{
+  font-size:calc(25px * var(--f));
+  font-weight:800;
+  letter-spacing:.045em;
+  text-transform:uppercase;
+  line-height:1.02;
+  background:linear-gradient(92deg,#fff 0%,#fff 40%,var(--cyan) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.domain{
+  margin-top:calc(3px * var(--f));
+  font-size:calc(12.5px * var(--f));
+  font-weight:700;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--magenta);
+}
+
+.clockwrap{margin-top:calc(9px * var(--f))}
+.clock{
+  font-size:calc(56px * var(--f));
+  font-weight:900;
+  line-height:.94;
+  letter-spacing:-.015em;
+  font-variant-numeric:tabular-nums;
+  color:var(--cyan);
+  text-shadow:0 0 22px rgba(0,232,255,.45);
+}
+.clock.low{ color:var(--gold); text-shadow:0 0 24px rgba(255,197,61,.5); animation:pulse 1s ease-in-out infinite }
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.62}}
+.clocklabel{
+  margin-top:calc(2px * var(--f));
+  font-size:calc(10.5px * var(--f));
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.blockline{
+  margin-top:calc(10px * var(--f));
+  font-size:calc(12px * var(--f));
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(234,242,255,.78);
+}
+.blockline .num{color:var(--magenta)}
+
+.room{margin-top:calc(8px * var(--f))}
+.room-track{
+  height:calc(7px * var(--f));
+  border-radius:99px;
+  background:rgba(255,255,255,.10);
+  overflow:hidden;
+}
+.room-fill{
+  height:100%;
+  width:0%;
+  border-radius:99px;
+  background:linear-gradient(90deg,var(--magenta),var(--cyan));
+  transition:width 1.1s cubic-bezier(.22,.8,.3,1);
+}
+
+/* ---------- rows ---------- */
+.board{
+  flex:1 1 auto;
+  min-height:0;          /* flex items default to min-height:auto, which lets
+                            this box grow to fit its rows. Without this the
+                            board silently overflows the panel AND reports an
+                            inflated clientHeight, so the autofit measurement
+                            below thinks everything fits when it does not. */
+  padding:calc(10px * var(--f)) calc(14px * var(--f));
+  display:flex;
+  flex-direction:column;
+  gap:calc(9px * var(--f) * var(--scale));
+  overflow:hidden;
+}
+
+.row{
+  flex:0 0 auto;         /* never let flexbox squash rows to make them fit.
+                            Default flex-shrink:1 silently compressed 26 rows
+                            into a 22px each, which made the autofit
+                            measurement below read a fake row height. */
+  padding:calc(8px * var(--f) * var(--scale)) calc(11px * var(--f)) calc(9px * var(--f) * var(--scale));
+  border-radius:9px;
+  background:rgba(255,255,255,.04);
+  border-left:3px solid rgba(0,232,255,.5);
+}
+/* only a genuinely new arrival animates in, never an existing row */
+.row.enter{animation:pop .45s cubic-bezier(.2,.9,.25,1)}
+@keyframes pop{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+.row.done{ border-left-color:var(--gold); background:rgba(255,197,61,.10) }
+.row.lead{ background:rgba(0,232,255,.09); border-left-color:var(--cyan) }
+
+.row-top{display:flex;align-items:baseline;gap:calc(7px * var(--f))}
+.rank{
+  font-size:calc(13px * var(--f) * var(--scale));
+  font-weight:800;
+  color:var(--muted);
+  font-variant-numeric:tabular-nums;
+  min-width:calc(15px * var(--f));
+  flex:0 0 auto;
+}
+.row.lead .rank{color:var(--cyan)}
+.row.done .rank{color:var(--gold)}
+.name{
+  font-size:calc(18.5px * var(--f) * var(--scale));
+  font-weight:700;
+  color:var(--cyan);
+  letter-spacing:.01em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  flex:1 1 auto;
+  min-width:0;
+}
+.row.done .name{color:var(--gold)}
+.pct{
+  font-size:calc(15px * var(--f) * var(--scale));
+  font-weight:800;
+  color:rgba(234,242,255,.72);
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+  flex:0 0 auto;
+}
+.row.done .pct{color:var(--gold)}
+.badge{
+  font-size:calc(12.5px * var(--f) * var(--scale));
+  font-weight:800;
+  color:var(--gold);
+  background:rgba(255,197,61,.16);
+  border:1px solid rgba(255,197,61,.45);
+  border-radius:99px;
+  padding:0 calc(7px * var(--f)) 1px;
+  line-height:1.5;
+  white-space:nowrap;
+  flex:0 0 auto;
+}
+body.dense .badge{font-size:calc(11.5px * var(--f) * var(--scale));padding:0 calc(6px * var(--f)) 1px}
+
+.goal{
+  margin-top:calc(3px * var(--f));
+  font-size:calc(16px * var(--f) * var(--scale));
+  font-weight:400;
+  color:rgba(234,242,255,.92);
+  line-height:1.3;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.track{
+  margin-top:calc(7px * var(--f) * var(--scale));
+  height:calc(6px * var(--f) * var(--scale));
+  border-radius:99px;
+  background:rgba(255,255,255,.09);
+  overflow:hidden;
+}
+.fill{
+  height:100%;
+  width:0%;
+  border-radius:99px;
+  background:linear-gradient(90deg,rgba(255,45,120,.92),var(--cyan));
+  box-shadow:0 0 10px rgba(0,232,255,.35);
+  transition:width .95s cubic-bezier(.22,.8,.3,1);
+  position:relative;
+}
+.row.done .fill{
+  background:linear-gradient(90deg,var(--gold),#FFE39A);
+  box-shadow:0 0 12px rgba(255,197,61,.45);
+}
+.fill::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:translateX(-100%);
+  animation:shimmer 2.6s ease-in-out infinite;
+}
+.row.done .fill::after{animation:none;opacity:0}
+@keyframes shimmer{0%{transform:translateX(-100%)}55%{transform:translateX(120%)}100%{transform:translateX(120%)}}
+
+.more{
+  text-align:center;
+  font-size:calc(12px * var(--f));
+  color:var(--muted);
+  font-weight:700;
+  letter-spacing:.09em;
+  padding-top:3px;
+}
+
+.empty{
+  flex:1 1 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:24px 20px;
+  font-size:calc(15px * var(--f));
+  line-height:1.5;
+  color:var(--muted);
+}
+.empty b{display:block;color:var(--cyan);font-size:calc(18px * var(--f));margin-bottom:7px;letter-spacing:.01em}
+.empty code{
+  display:inline-block;margin-top:10px;padding:6px 11px;border-radius:7px;
+  background:rgba(0,232,255,.12);color:var(--ink);font-family:inherit;font-weight:700;
+  font-size:calc(14px * var(--f));
+}
+
+/* ---------- footer ---------- */
+.foot{
+  flex:0 0 auto;
+  padding:calc(11px * var(--f)) calc(14px * var(--f)) calc(13px * var(--f));
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  justify-content:space-around;
+  gap:8px;
+  background:rgba(0,0,0,.22);
+}
+.stat{text-align:center;min-width:0}
+.stat .v{
+  font-size:calc(28px * var(--f));
+  font-weight:800;
+  line-height:1;
+  color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+.stat.ship .v{color:var(--gold)}
+.stat .k{
+  margin-top:calc(5px * var(--f));
+  font-size:calc(12px * var(--f));
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:#A8BCDE;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* live viewer stat */
+.stat.live .v{
+  color:var(--magenta);
+  display:flex;align-items:center;justify-content:center;
+  gap:calc(6px * var(--f));
+}
+.dot{
+  width:calc(9px * var(--f));height:calc(9px * var(--f));
+  border-radius:99px;background:#FF3B3B;
+  box-shadow:0 0 10px rgba(255,59,59,.85);
+  animation:blink 2s ease-in-out infinite;
+  flex:0 0 auto;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.28}}
+
+/* 3-stat layout (viewers off) */
+body:not(.viewers) .stat.live{display:none}
+/* 4-stat layout (viewers on): tighten the labels so they still fit */
+body.viewers .foot{gap:calc(3px * var(--f));padding-left:calc(6px * var(--f));padding-right:calc(6px * var(--f))}
+body.viewers .stat .k{font-size:calc(10.5px * var(--f));letter-spacing:.05em}
+body.viewers .stat .v{font-size:calc(25px * var(--f))}
+
+/* ---------- block length buttons ----------
+   Invisible on stream. They only appear while a mouse is actually over
+   the page, which happens in the OBS "Interact" window and nowhere else. */
+.ctrl{
+  position:absolute;
+  left:0;right:0;bottom:calc(74px * var(--f));
+  display:flex;justify-content:center;gap:calc(7px * var(--f));
+  opacity:0;
+  transition:opacity .15s ease;
+  z-index:5;
+}
+body:hover .ctrl, body.showctrl .ctrl{opacity:1}
+.ctrl button{
+  font-family:inherit;
+  font-size:calc(13px * var(--f));
+  font-weight:800;
+  letter-spacing:.05em;
+  color:var(--ink);
+  background:rgba(11,11,42,.94);
+  border:1px solid rgba(0,232,255,.55);
+  border-radius:8px;
+  padding:calc(8px * var(--f)) calc(13px * var(--f));
+  cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,.5);
+}
+.ctrl button:hover{background:var(--cyan);color:var(--navy);border-color:var(--cyan)}
+.ctrl button:active{transform:translateY(1px)}
+
+/* ---------- setup checker (press D, or add ?debug=1) ---------- */
+#diag{
+  position:fixed;inset:0;
+  background:rgba(6,6,20,.97);
+  color:#EAF2FF;
+  font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  padding:18px 16px;
+  overflow:auto;
+  z-index:99;
+  display:none;
+}
+body.diag #diag{display:block}
+#diag h2{font-family:'Poppins',sans-serif;font-size:16px;letter-spacing:.08em;margin-bottom:12px;color:#00E8FF}
+#diag .ln{margin-bottom:10px;padding-left:20px;text-indent:-20px;word-break:break-word}
+#diag .ok::before{content:"[OK]  ";color:#3DDC91;font-weight:700}
+#diag .no::before{content:"[FAIL] ";color:#FF5C7A;font-weight:700}
+#diag .wait::before{content:"[..]  ";color:#FFC53D;font-weight:700}
+#diag .hint{color:#8FA3C8;display:block;padding-left:0;text-indent:0;margin-top:2px}
+#diag .foot2{margin-top:14px;color:#8FA3C8;border-top:1px solid rgba(255,255,255,.12);padding-top:10px}
+
+/* ---------- density modes, chosen automatically to fit the room ----------
+   normal  : goal wraps to 2 lines
+   tight   : goal clipped to 1 line, padding trimmed
+   compact : no goal text at all, name and bar only  */
+body.tight .goal{-webkit-line-clamp:1}
+body.tight .row{padding-top:calc(6px * var(--f) * var(--scale));padding-bottom:calc(7px * var(--f) * var(--scale))}
+body.tight .board{gap:calc(7px * var(--f) * var(--scale))}
+
+/* dense : the ROW ITSELF becomes the bar, so the separate track and its
+   margin disappear. Buys about 13px per row while keeping the goal text,
+   and reads like a horizontal bar chart with the label inside. */
+body.dense .goal{-webkit-line-clamp:1}
+body.dense .board{gap:calc(6px * var(--f) * var(--scale))}
+body.dense .row{
+  position:relative;
+  overflow:hidden;
+  padding:calc(6px * var(--f) * var(--scale)) calc(11px * var(--f)) calc(7px * var(--f) * var(--scale));
+}
+body.dense .track{
+  position:absolute;
+  inset:0;
+  margin:0;
+  height:auto;
+  border-radius:0;
+  background:transparent;
+  z-index:0;
+}
+body.dense .fill{
+  border-radius:0;
+  box-shadow:none;
+  background:linear-gradient(90deg, rgba(255,45,120,.34), rgba(0,232,255,.22));
+}
+body.dense .row.done .fill{
+  background:linear-gradient(90deg, rgba(255,197,61,.34), rgba(255,227,154,.20));
+}
+body.dense .fill::after{display:none}
+body.dense .row-top,
+body.dense .goal{position:relative;z-index:1}
+
+/* compact : names only. Never chosen automatically, only via FORCE_DENSITY. */
+body.compact .goal{display:none}
+body.compact .track{margin-top:calc(5px * var(--f) * var(--scale))}
+body.compact .row{padding-top:calc(5px * var(--f) * var(--scale));padding-bottom:calc(6px * var(--f) * var(--scale))}
+body.compact .board{gap:calc(6px * var(--f) * var(--scale))}
+
+/* page indicator, replaces the "+N more" line when the board rotates */
+.pager{
+  flex:0 0 auto;
+  text-align:center;
+  font-size:calc(11px * var(--f));
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--muted);
+  padding-top:calc(3px * var(--f));
+}
+.pager b{color:var(--cyan);font-weight:800}
+/* clock hidden */
+body.noclock .clockwrap{display:none}
+</style>
+</head>
+<body>
+
+<div id="diag"></div>
+<div class="ctrl" id="ctrl"></div>
+
+<div class="panel">
+  <div class="head">
+    <div class="brand" id="brand">CLOCK IN</div>
+    <div class="domain" id="domain">SIMPLYCYBER.IO</div>
+
+    <div class="clockwrap">
+      <div class="clock" id="clock">1:50:00</div>
+      <div class="clocklabel" id="clocklabel">TIME TIL BREAK ROOM</div>
+    </div>
+
+    <div class="blockline" id="blockline">SHIFT <span class="num" id="blockNum">#1</span></div>
+    <div class="room"><div class="room-track"><div class="room-fill" id="roomFill"></div></div></div>
+  </div>
+
+  <div class="board" id="board"></div>
+
+  <div class="foot">
+    <div class="stat live"><div class="v"><span class="dot"></span><span id="sViewers">0</span></div><div class="k">Live now</div></div>
+    <div class="stat"><div class="v" id="sPeople">0</div><div class="k" id="kPeople">In the room</div></div>
+    <div class="stat"><div class="v" id="sHours">0.0</div><div class="k">Focus hours</div></div>
+    <div class="stat ship"><div class="v" id="sShipped">0</div><div class="k">Shipped</div></div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   1. CONFIG : edit this block, nothing else needed
+   ============================================================ */
+const CONFIG = {
+
+  // ============================================================
+  //  YOUR GOOGLE API KEY. The only thing in this file you ever
+  //  have to fill in, and you only have to do it ONCE, ever.
+  //
+  //  Paste it here, load the file, and the page remembers it in
+  //  browser storage. Future versions of this file pick it up
+  //  automatically, so you never re-paste it after an update.
+  //  You can also hand it over in the URL, once, instead:
+  //    ...\overlay.html?key=AIzaSy...
+  //  Nothing to enable. A key present means it is on.
+  // ============================================================
+  API_KEY: "",
+
+  // ---- SIZE ----
+  // Global font multiplier. 1 is the new baseline (already bigger than v1).
+  // Try 1.15 or 1.3 if you want it bolder still, 0.9 to tighten it up.
+  FONT_SCALE: 1,
+
+  // ---- TIMING ----
+  SESSION_MINUTES: 110,   // default block length. Bars hit 100% exactly at the end.
+
+  // Restart buttons. Hidden on stream, visible in the OBS Interact window.
+  // Keyboard shortcuts 1, 2, 3 match the order below.
+  // Edit, add or delete freely, they are just label and minutes.
+  BUTTONS: [
+    { label: "1:50",   minutes: 110 },
+    { label: "50 MIN", minutes: 50  },
+    { label: "25 MIN", minutes: 25  }
+  ],
+
+  // ---- TEXT ----
+  BRAND_LINE: "CLOCK IN",
+  DOMAIN_LINE: "SIMPLYCYBER.IO",
+  CLOCK_LABEL: "TIME TIL BREAK ROOM",
+  BLOCK_LABEL: "SHIFT",
+
+  // ---- FOOTPRINT ----
+  SHOW_CLOCK: true,   // false if you keep your existing top banner countdown
+  MAX_ROWS: 30,       // hard ceiling on how many people the board will ever hold
+  SHOW_PERCENT: true,
+
+  // ---- FITTING THE WHOLE ROOM ON SCREEN ----
+  // The board measures itself and steps down through density modes until
+  // everyone fits: full goals, then one-line goals, then names only.
+  AUTOFIT: true,
+
+  // If even the tightest mode cannot fit everyone, the board rotates
+  // through pages so nobody is left off. Seconds per page, 0 disables.
+  ROTATE_SECONDS: 10,
+
+  // Force a density instead of letting it choose:
+  //   "normal"  goal wraps to 2 lines
+  //   "tight"   goal clipped to 1 line
+  //   "dense"   row itself becomes the bar, goal still shown
+  //   "compact" names only, no goal text (never chosen automatically)
+  // Leave "" for automatic.
+  FORCE_DENSITY: "",
+
+  // ---- LEADERBOARD ----
+  LEADERBOARD: true,  // sort rows by progress, highest at the top
+  SHOW_RANK: true,    // 1, 2, 3 numbers down the left
+
+  // ---- THE GOAL SHEET ----
+  // Your sheet, in the Simply Cyber workspace, already shared link-readable:
+  // https://docs.google.com/spreadsheets/d/1TpZAWltr1JjAGRqKmswHLH6427C7xodb1BHsnv-L9eU/edit
+  // Reads live through the Sheets API using the same key as YouTube below.
+  // Set SHEET_ID to "" to go back to the DEMO names at the bottom.
+  SHEET_ID: "1TpZAWltr1JjAGRqKmswHLH6427C7xodb1BHsnv-L9eU",
+  SHEET_RANGE: "A:D",     // Name, Goal, Status, Shipped
+  SHEET_CSV_URL: "",      // alternative: a Publish-to-web CSV link, no API key needed
+  POLL_SECONDS: 20,
+
+  // ---- LIVE YOUTUBE VIEWER COUNT ----
+  // Pulls real concurrent viewers off your live broadcast.
+  // See the setup notes at the bottom of this file.
+  YOUTUBE: {
+    CHANNEL_HANDLE: "@simplycybercafe",  // resolved to a channel ID automatically
+    CHANNEL_ID: "",                  // optional: skip the handle lookup if you know it
+    VIDEO_ID: "",                    // optional: pin one broadcast and skip the live lookup
+    // If more than one stream is live on the channel at once (your 24/7 lofi
+    // loop, for example), this picks the right one by title. Case insensitive
+    // substring match, and curly vs straight apostrophes are treated the same.
+    // Leave "" to just take the first live video found.
+    TITLE_MATCH: "clock in",
+    REFRESH_SECONDS: 45,
+
+    // Hours a Clock In stream might be running, in your timezone. Outside
+    // this window the overlay stops looking for a broadcast and spends no
+    // quota. A stream already found keeps being polled past the end hour.
+    // Set ACTIVE_START_HOUR to null to disable the window entirely.
+    ACTIVE_TZ: "America/New_York",
+    ACTIVE_START_HOUR: 10,   // 10am, inclusive
+    ACTIVE_END_HOUR: 18      // 6pm, exclusive
+  },
+
+  DEMO: [
+    { name: "Wendy P.",      goal: "Finish the SOC2 evidence request list",  status: "" },
+    { name: "CodeBrewCyber", goal: "CISSP domain 3 review, 40 questions",    status: "" },
+    { name: "Rick K.",       goal: "Rewrite my LinkedIn headline and About", status: "done" },
+    { name: "legrat",        goal: "Draft the vendor risk questionnaire",    status: "" },
+    { name: "nwokobia",      goal: "Lab: build the Splunk detection rule",   status: "" },
+    { name: "ember_elkes",   goal: "Inbox zero and Q4 planning doc",         status: "" },
+    { name: "Jennifer G.",   goal: "Prep slides for the IoT webinar",        status: "" },
+    { name: "Marcus T.",     goal: "Apply to 5 GRC analyst roles",           status: "" }
+  ]
+};
+
+/* ============================================================
+   1b. Resolve the API key, and remember it across file updates
+   ============================================================ */
+const params = new URLSearchParams(location.search);
+
+const KEY_STORE = "scClockIn.apiKey";
+const API_KEY = (function(){
+  const fromUrl = (params.get("key") || "").trim();
+  const fromFile = (CONFIG.API_KEY || "").trim();
+  let remembered = "";
+  try { remembered = localStorage.getItem(KEY_STORE) || ""; } catch(e){}
+
+  const chosen = fromUrl || fromFile || remembered;
+
+  // Remember whatever was supplied, so replacing this file with a newer
+  // version does not mean pasting the key in again.
+  if ((fromUrl || fromFile) && chosen !== remembered){
+    try { localStorage.setItem(KEY_STORE, chosen); } catch(e){}
+  }
+  window.__keySource = fromUrl ? "URL" : fromFile ? "this file" : remembered ? "remembered from last time" : "missing";
+  return chosen;
+})();
+
+/* ============================================================
+   2. Session clock
+   ============================================================ */
+const STORE_KEY = "scFocusBlock.v2";
+const today = () => new Date().toISOString().slice(0,10);
+
+function loadStore(){ try { return JSON.parse(localStorage.getItem(STORE_KEY) || "null"); } catch(e){ return null; } }
+function saveStore(o){ try { localStorage.setItem(STORE_KEY, JSON.stringify(o)); } catch(e){} }
+
+let store = loadStore();
+let SESSION_MS, START, END;
+let lastTick = Date.now();
+let lastSave = 0;
+let booted = false;   // render() is hoisted but its data is not, so gate on this
+
+/* Start a fresh block of the given length. This is what the buttons call. */
+function startSession(minutes, opts){
+  const carryBlock = (opts && opts.keepBlock) ? store.block : (store && store.day === today() ? (store.block || 0) + 1 : 1);
+  store = {
+    start: Date.now(),
+    minutes: minutes,
+    block: carryBlock || 1,
+    day: today(),
+    joins: {},
+    goals: {},
+    focusMs: 0
+  };
+  saveStore(store);
+  applySession();
+  lastTick = Date.now();
+  if (booted) render();
+}
+
+/* Recompute the derived clock values from whatever is in store. */
+function applySession(){
+  SESSION_MS = (store.minutes || CONFIG.SESSION_MINUTES) * 60000;
+  START = store.start;
+  END = START + SESSION_MS;
+}
+
+/* Refresh behaviour, which is the normal way to drive this in OBS:
+     - refresh DURING a block  -> resumes where it was, so an accidental
+       refresh never wipes a running session
+     - refresh AFTER the clock hits zero -> starts a fresh block at the same
+       length, and bumps the block number. Right-click the source, Refresh,
+       and you are running again.
+   ?min=50 in the source URL sets the length. ?reset=1 always starts over. */
+const urlMin = parseInt(params.get("min"), 10);
+const lastMin = (store && store.minutes) || CONFIG.SESSION_MINUTES;
+const elapsed = (store && store.start) ? Date.now() - store.start : Infinity;
+const finished = elapsed >= lastMin * 60000;
+
+if (params.has("reset") || !store || !store.start || finished){
+  startSession(urlMin > 0 ? urlMin : lastMin);
+} else if (urlMin > 0 && urlMin !== lastMin){
+  startSession(urlMin);            // asked for a different length, honour it
+} else {
+  if (store.focusMs == null) store.focusMs = 0;
+  if (!store.goals) store.goals = {};
+  if (!store.block) store.block = 1;
+  if (!store.day) store.day = today();
+  applySession();
+}
+
+/* Returns when this person's CURRENT goal started. Clocking in again with a
+   different goal restarts their bar from zero rather than resuming the old
+   climb, which is the whole point of banking a win and starting fresh. */
+function joinTime(name, goal){
+  const g = goal || "";
+  if (!store.goals) store.goals = {};
+  if (!store.joins[name] || store.goals[name] !== g){
+    store.joins[name] = Date.now();
+    store.goals[name] = g;
+    saveStore(store);
+  }
+  return store.joins[name];
+}
+
+/* ============================================================
+   3. Seeded pseudo-random progress curve
+   Each person climbs on their own jittery, always forward path
+   that lands on exactly 100% when the block ends.
+   ============================================================ */
+function fnv1a(str){
+  let h = 2166136261;
+  for (let i=0;i<str.length;i++){ h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return h >>> 0;
+}
+function mulberry32(a){
+  return function(){
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const curveCache = {};
+function curveFor(name){
+  if (curveCache[name]) return curveCache[name];
+  const rnd = mulberry32(fnv1a(name + "|sc-focus"));
+  const KNOTS = 7;
+  const tw = [], vw = [];
+  for (let i=0;i<KNOTS;i++){
+    tw.push(0.45 + rnd());            // uneven time spacing
+    vw.push(0.12 + rnd()*rnd()*2.2);  // skewed: some plateaus, some big jumps
+  }
+  const tsum = tw.reduce((a,b)=>a+b,0);
+  const vsum = vw.reduce((a,b)=>a+b,0);
+  const ts=[0], vs=[0];
+  let ta=0, va=0;
+  for (let i=0;i<KNOTS;i++){
+    ta += tw[i]/tsum; va += vw[i]/vsum;
+    ts.push(Math.min(1, ta)); vs.push(Math.min(1, va));
+  }
+  ts[ts.length-1]=1; vs[vs.length-1]=1;
+  return (curveCache[name] = { ts, vs });
+}
+function evalCurve(c, t){
+  if (t <= 0) return 0;
+  if (t >= 1) return 1;
+  for (let i=1;i<c.ts.length;i++){
+    if (t <= c.ts[i]){
+      const t0=c.ts[i-1], t1=c.ts[i], v0=c.vs[i-1], v1=c.vs[i];
+      return v0 + (v1-v0) * ((t-t0) / Math.max(1e-6, t1-t0));
+    }
+  }
+  return 1;
+}
+function progressFor(name, goal){
+  const j = Math.min(joinTime(name, goal), END - 60000);
+  const span = Math.max(60000, END - j);
+  // seed on name + goal so a second goal gets its own distinct climb
+  return evalCurve(curveFor(name + "|" + (goal || "")), (Date.now() - j) / span);
+}
+
+/* ============================================================
+   4. Data source
+   ============================================================ */
+function parseCSV(text){
+  const rows=[]; let row=[], cell="", q=false;
+  for (let i=0;i<text.length;i++){
+    const c = text[i];
+    if (q){
+      if (c === '"'){ if (text[i+1] === '"'){ cell+='"'; i++; } else q=false; }
+      else cell += c;
+    } else if (c === '"') q = true;
+    else if (c === ','){ row.push(cell); cell=""; }
+    else if (c === '\n'){ row.push(cell); rows.push(row); row=[]; cell=""; }
+    else if (c !== '\r') cell += c;
+  }
+  if (cell.length || row.length){ row.push(cell); rows.push(row); }
+  return rows.filter(r => r.some(c => c.trim() !== ""));
+}
+
+function rowsToPeople(rows){
+  // Drop blank rows first: leading blanks, template filler rows, and gaps
+  // people leave in the middle of the sheet. Without this a blank row 1
+  // hides the header and "Name / Goal / Status" shows up as a participant.
+  rows = rows.filter(r => r && r.some(c => String(c == null ? "" : c).trim() !== ""));
+  if (!rows.length) return [];
+  const first = rows[0].map(c => c.trim().toLowerCase());
+  const hasHeader = first.includes("name") || first.includes("goal");
+  const body = hasHeader ? rows.slice(1) : rows;
+  let iN=0, iG=1, iS=2, iW=3;
+  if (hasHeader){
+    const f = k => first.findIndex(c => c.includes(k));
+    if (f("name")    > -1) iN = f("name");
+    if (f("goal")    > -1) iG = f("goal");
+    if (f("status")  > -1) iS = f("status");
+    if (f("shipped") > -1) iW = f("shipped");
+  }
+  return body.map(r => ({
+    name:   (r[iN]||"").trim(),
+    goal:   (r[iG]||"").trim(),
+    status: (r[iS]||"").trim().toLowerCase(),
+    shipped: Math.max(0, parseInt((r[iW]||"0"), 10) || 0)
+  })).filter(p => p.name);
+}
+
+const LIVE_SHEET = !!(CONFIG.SHEET_ID || CONFIG.SHEET_CSV_URL);
+let people = LIVE_SHEET ? [] : CONFIG.DEMO.slice();
+let sheetEverLoaded = false;
+
+/* Plain English record of what each call did, for the setup checker. */
+const DIAG = { sheet: null, yt: null, ytNote: null };
+
+// Pull Google's own error text out of a failed JSON response
+async function googleError(res){
+  try {
+    const j = await res.json();
+    return (j && j.error && j.error.message) || ("HTTP " + res.status);
+  } catch(e){ return "HTTP " + res.status; }
+}
+
+/* ------------------------------------------------------------
+   4b. YouTube live concurrent viewers
+   Quota cost: 1 unit per refresh, and 2 units to find the live
+   video. No search.list anywhere, that call costs 100 units and
+   polling it is what blew the daily Search Queries quota.
+   ------------------------------------------------------------ */
+const YT = {
+  channelId: CONFIG.YOUTUBE.CHANNEL_ID || null,
+  playlistId: null,
+  videoId: CONFIG.YOUTUBE.VIDEO_ID || null,
+  viewers: null,
+  lastSearch: 0,
+
+  async api(path, qs){
+    const u = "https://www.googleapis.com/youtube/v3/" + path + "?" + qs +
+              "&key=" + encodeURIComponent(API_KEY);
+    const r = await fetch(u, { cache: "no-store" });
+    if (!r.ok) throw new Error(await googleError(r));
+    return r.json();
+  },
+
+  // The uploads playlist costs 1 unit. search.list costs 100, and polling it
+  // is what exhausted the daily Search Queries quota, so it is gone.
+  async uploadsPlaylist(){
+    if (this.playlistId) return this.playlistId;
+    const qs = CONFIG.YOUTUBE.CHANNEL_ID
+      ? "part=contentDetails&id=" + encodeURIComponent(CONFIG.YOUTUBE.CHANNEL_ID)
+      : "part=contentDetails&forHandle=" + encodeURIComponent(
+          (CONFIG.YOUTUBE.CHANNEL_HANDLE || "").replace(/^@?/, "@"));
+    const j = await this.api("channels", qs);
+    this.playlistId = (j.items && j.items[0] && j.items[0].contentDetails &&
+                       j.items[0].contentDetails.relatedPlaylists &&
+                       j.items[0].contentDetails.relatedPlaylists.uploads) || null;
+    return this.playlistId;
+  },
+
+  // "Let's Work!" and "Let\u2019s Work!" must compare equal
+  norm(s){
+    return (s || "").toLowerCase()
+      .replace(/[\u2018\u2019\u02BC\u00B4`]/g, "'")
+      .replace(/\s+/g, " ")
+      .trim();
+  },
+
+  withinWindow(){
+    const y = CONFIG.YOUTUBE;
+    if (y.ACTIVE_START_HOUR == null) return true;
+    const h = parseInt(new Intl.DateTimeFormat("en-US", {
+      timeZone: y.ACTIVE_TZ, hour: "numeric", hour12: false
+    }).format(new Date()), 10);
+    return h >= y.ACTIVE_START_HOUR && h < y.ACTIVE_END_HOUR;
+  },
+
+  async findLiveVideo(){
+    if (!this.withinWindow()){
+      DIAG.yt = { ok: true, msg: "outside the " + CONFIG.YOUTUBE.ACTIVE_START_HOUR +
+                  ":00 to " + CONFIG.YOUTUBE.ACTIVE_END_HOUR + ":00 " +
+                  CONFIG.YOUTUBE.ACTIVE_TZ + " window, not looking for a stream" };
+      return null;
+    }
+    // 2 units per attempt, so this can run often without any real cost.
+    const gap = (Date.now() - START < 15*60000) ? 60000 : 5*60000;
+    if (Date.now() - this.lastSearch < gap) return null;
+    this.lastSearch = Date.now();
+
+    const pl = await this.uploadsPlaylist();
+    if (!pl) return null;
+
+    const list = await this.api("playlistItems",
+      "part=contentDetails&maxResults=10&playlistId=" + encodeURIComponent(pl));
+    const ids = (list.items || [])
+      .map(it => it.contentDetails && it.contentDetails.videoId)
+      .filter(Boolean);
+    if (!ids.length) return null;
+
+    const vids = await this.api("videos",
+      "part=snippet,liveStreamingDetails&id=" + encodeURIComponent(ids.join(",")));
+    const live = (vids.items || []).filter(
+      v => v.liveStreamingDetails && v.liveStreamingDetails.concurrentViewers != null);
+
+    const want = this.norm(CONFIG.YOUTUBE.TITLE_MATCH);
+    for (const v of live){
+      if (!want || this.norm(v.snippet && v.snippet.title).includes(want)){
+        this.viewers = parseInt(v.liveStreamingDetails.concurrentViewers, 10);
+        return v.id;
+      }
+    }
+    return null;
+  },
+
+  async poll(){
+    if (!API_KEY){
+      DIAG.yt = { ok: false, msg: "no API key set" };
+      return;
+    }
+    try{
+      if (!this.videoId) this.videoId = await this.findLiveVideo();
+      if (!this.videoId){
+        this.viewers = null;
+        DIAG.yt = this.withinWindow()
+          ? { ok: true, msg: "key works, no live stream matching \"" +
+              CONFIG.YOUTUBE.TITLE_MATCH + "\" on " + CONFIG.YOUTUBE.CHANNEL_HANDLE + " right now" }
+          : { ok: true, msg: "outside " + CONFIG.YOUTUBE.ACTIVE_START_HOUR + ":00-" +
+              CONFIG.YOUTUBE.ACTIVE_END_HOUR + ":00 " + CONFIG.YOUTUBE.ACTIVE_TZ +
+              ", not looking for a stream (no quota spent)" };
+        return;
+      }
+
+      const j = await this.api("videos",
+        "part=liveStreamingDetails&id=" + encodeURIComponent(this.videoId));
+      // match on id rather than trusting position in the response
+      const hit = (j.items || []).find(v => v.id === this.videoId) || (j.items || [])[0];
+      const d = hit && hit.liveStreamingDetails;
+      const v = d && d.concurrentViewers;
+
+      if (v != null){
+        this.viewers = parseInt(v, 10);
+        DIAG.yt = { ok: true, msg: this.viewers + " watching right now (video " + this.videoId + ")" };
+      } else {
+        // stream ended, or the viewer count is hidden on this broadcast
+        this.viewers = null;
+        DIAG.yt = { ok: false, msg: "found the stream but YouTube returned no viewer count. " +
+                    "The live viewer count is probably hidden on that broadcast in YouTube Studio." };
+        if (!CONFIG.YOUTUBE.VIDEO_ID) this.videoId = null;
+      }
+    } catch(e){
+      this.viewers = null;   // fail quiet, never show an error on stream
+      DIAG.yt = { ok: false, msg: e.message || String(e) };
+    }
+  }
+};
+
+/* Focus hours: integrate headcount over elapsed time so the number
+   survives a refresh and reflects who was actually here. */
+function accumulateFocus(headcount){
+  const now = Date.now();
+  const dt = now - lastTick;
+  lastTick = now;
+  if (dt > 0 && dt < 120000 && now < END + 60000 && headcount > 0){
+    store.focusMs += headcount * dt;
+    if (now - lastSave > 10000){ saveStore(store); lastSave = now; }
+  }
+}
+
+async function pull(){
+  if (!LIVE_SHEET) return;
+  try{
+    let next;
+
+    if (CONFIG.SHEET_ID){
+      // Sheets API v4. Updates in seconds, unlike the Publish-to-web CSV cache.
+      const u = "https://sheets.googleapis.com/v4/spreadsheets/" +
+                encodeURIComponent(CONFIG.SHEET_ID) + "/values/" +
+                encodeURIComponent(CONFIG.SHEET_RANGE) +
+                "?majorDimension=ROWS&key=" + encodeURIComponent(API_KEY);
+      const res = await fetch(u, { cache: "no-store" });
+      if (!res.ok) throw new Error(await googleError(res));
+      const j = await res.json();
+      next = rowsToPeople((j.values || []).map(r => r.map(c => String(c == null ? "" : c))));
+    } else {
+      const sep = CONFIG.SHEET_CSV_URL.includes("?") ? "&" : "?";
+      const res = await fetch(CONFIG.SHEET_CSV_URL + sep + "cb=" + Date.now(), { cache: "no-store" });
+      if (!res.ok) throw new Error(res.status);
+      next = rowsToPeople(parseCSV(await res.text()));
+    }
+
+    people = next;            // an emptied sheet correctly shows the empty state
+    sheetEverLoaded = true;
+    DIAG.sheet = { ok: true, msg: next.length + " participant row" + (next.length === 1 ? "" : "s") + " read" };
+  } catch(e){
+    DIAG.sheet = { ok: false, msg: e.message || String(e) };
+    // Never drop demo names onto a live stream if the sheet hiccups.
+    if (!sheetEverLoaded) people = [];
+  }
+}
+
+/* ============================================================
+   5. Render
+   ============================================================ */
+const board = document.getElementById("board");
+const rowEls = new Map();   // name -> row element, reused between frames
+let moreEl = null;
+let lastScale = null;
+let lastDensity = null;
+
+/* ------------------------------------------------------------
+   Density ladder. Tried in order until the whole room fits.
+   Row heights are deterministic per rung, so each rung only ever
+   gets measured once and the answer is cached.
+   ------------------------------------------------------------ */
+const LADDER = [
+  { density: "normal", scale: 1.00 },   // goal wraps to 2 lines
+  { density: "normal", scale: 0.92 },
+  { density: "tight",  scale: 1.00 },   // goal clipped to 1 line
+  { density: "tight",  scale: 0.92 },
+  { density: "dense",  scale: 1.00 },   // row becomes the bar, goal still shown
+  { density: "dense",  scale: 0.92 },
+  { density: "dense",  scale: 0.85 },
+  { density: "dense",  scale: 0.78 }
+  // Deliberately no "compact" rung: the goal text never disappears on its
+  // own. Past what fits at dense 0.78 the board rotates pages instead.
+];
+
+const rungMetrics = {};   // "density|scale" -> {rh, gap}
+const fitPlans = {};      // participant count -> chosen plan
+let page = 0;
+let pageTimer = 0;
+
+function applyRung(rung){
+  if (lastDensity !== rung.density){
+    setClass(document.body, "tight",   rung.density === "tight");
+    setClass(document.body, "dense",   rung.density === "dense");
+    setClass(document.body, "compact", rung.density === "compact");
+    lastDensity = rung.density;
+  }
+  if (lastScale !== rung.scale){
+    document.documentElement.style.setProperty("--scale", rung.scale);
+    lastScale = rung.scale;
+  }
+}
+
+function measureRung(rung){
+  const key = rung.density + "|" + rung.scale;
+  if (rungMetrics[key]) return rungMetrics[key];
+  const row = board.querySelector(".row");
+  if (!row) return null;                       // nothing rendered yet
+  applyRung(rung);
+  const rh = row.getBoundingClientRect().height;
+  const gap = parseFloat(getComputedStyle(board).rowGap) || 0;
+  if (!rh) return null;
+  return (rungMetrics[key] = { rh: rh, gap: gap });
+}
+
+function availableHeight(){
+  const cs = getComputedStyle(board);
+  return board.clientHeight
+       - (parseFloat(cs.paddingTop) || 0)
+       - (parseFloat(cs.paddingBottom) || 0);
+}
+
+/** How many rows of this rung fit in the board right now. */
+function capacity(rung, reserve){
+  const m = measureRung(rung);
+  if (!m) return 0;
+  const h = availableHeight() - (reserve || 0);
+  if (h <= 0) return 0;
+  return Math.max(1, Math.floor((h + m.gap) / (m.rh + m.gap)));
+}
+
+/** Pick the loosest rung that shows everyone. Paging only as a last resort. */
+function planFor(n){
+  if (fitPlans[n]) return fitPlans[n];
+
+  // On the very first frame no row exists yet, so nothing can be measured.
+  // Return a provisional plan and do NOT cache it; the next frame measures.
+  if (!board.querySelector(".row")){
+    return { density: "normal", scale: 1, perPage: n };
+  }
+
+  const forced = CONFIG.FORCE_DENSITY;
+  const rungs = forced
+    ? LADDER.filter(r => r.density === forced)
+    : (CONFIG.AUTOFIT ? LADDER : [LADDER[0]]);
+
+  // Best case: everyone fits on one page. Use the loosest rung that does it.
+  for (const rung of rungs){
+    if (capacity(rung, 0) >= n){
+      return (fitPlans[n] = { density: rung.density, scale: rung.scale, perPage: n });
+    }
+  }
+
+  // Paging is needed. Rather than cramming one full page and leaving a
+  // near-empty second one, split evenly, then spend the freed space on
+  // BIGGER text: 16 people becomes 2 pages of 8 with full two-line goals,
+  // not one page of 12 plus a page of 4.
+  const tightest = rungs[rungs.length - 1] || LADDER[0];
+  const reserve = 24 * CONFIG.FONT_SCALE;          // room for the page line
+  const capTight = Math.max(3, capacity(tightest, reserve));
+  const pages = Math.max(2, Math.ceil(n / capTight));
+  const per = Math.ceil(n / pages);
+
+  for (const rung of rungs){
+    if (capacity(rung, reserve) >= per){
+      return (fitPlans[n] = { density: rung.density, scale: rung.scale, perPage: per });
+    }
+  }
+  return (fitPlans[n] = { density: tightest.density, scale: tightest.scale, perPage: capTight });
+}
+
+/* Rotating the visible page. Restarted whenever paging turns on or off. */
+function setRotation(on){
+  if (on && !pageTimer && CONFIG.ROTATE_SECONDS > 0){
+    pageTimer = setInterval(() => { page++; render(); },
+                            CONFIG.ROTATE_SECONDS * 1000);
+  } else if (!on && pageTimer){
+    clearInterval(pageTimer);
+    pageTimer = 0;
+    page = 0;
+  }
+}
+
+/* A resize means every cached measurement is wrong. */
+addEventListener("resize", () => {
+  for (const k in rungMetrics) delete rungMetrics[k];
+  for (const k in fitPlans) delete fitPlans[k];
+  if (booted) render();
+});
+
+/* Write-only-on-change helpers. Repeatedly assigning an identical value
+   still dirties style and is a classic source of overlay flicker. */
+function setDisplay(el, show){
+  const v = show ? "" : "none";
+  if (el.style.display !== v) el.style.display = v;
+}
+function setClass(el, cls, on){
+  if (el.classList.contains(cls) !== on) el.classList.toggle(cls, on);
+}
+function setText(el, t){ if (el.textContent !== t) el.textContent = t; }
+const isDone = s => /^(done|yes|y|x|complete|completed|shipped|✓|true|1)$/.test(s);
+const esc = s => s.replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+
+document.documentElement.style.setProperty("--f", CONFIG.FONT_SCALE);
+if (!CONFIG.SHOW_CLOCK) document.body.classList.add("noclock");
+document.getElementById("brand").textContent = CONFIG.BRAND_LINE;
+document.getElementById("domain").textContent = CONFIG.DOMAIN_LINE;
+document.getElementById("clocklabel").textContent = CONFIG.CLOCK_LABEL;
+document.getElementById("blockline").childNodes[0].nodeValue = CONFIG.BLOCK_LABEL + " ";
+
+/* ---- restart buttons ---- */
+const ctrl = document.getElementById("ctrl");
+CONFIG.BUTTONS.forEach((b, i) => {
+  const el = document.createElement("button");
+  el.textContent = b.label;
+  el.title = "Restart a " + b.minutes + " minute block  (key " + (i+1) + ")";
+  el.addEventListener("click", () => startSession(b.minutes));
+  ctrl.appendChild(el);
+});
+document.addEventListener("keydown", e => {
+  const i = parseInt(e.key, 10) - 1;
+  if (i >= 0 && CONFIG.BUTTONS[i]) startSession(CONFIG.BUTTONS[i].minutes);
+});
+
+/* OBS's Interact window does not always produce a CSS :hover state, so show
+   the buttons off real mouse events too, then fade them out when idle. */
+let ctrlTimer = null;
+["mousemove","mousedown","touchstart"].forEach(evt => {
+  document.addEventListener(evt, () => {
+    document.body.classList.add("showctrl");
+    clearTimeout(ctrlTimer);
+    ctrlTimer = setTimeout(() => document.body.classList.remove("showctrl"), 4000);
+  }, { passive: true });
+});
+
+function fmt(ms){
+  if (ms < 0) ms = 0;
+  const s = Math.floor(ms/1000);
+  const h = Math.floor(s/3600), m = Math.floor((s%3600)/60), ss = s%60;
+  return h > 0
+    ? h + ":" + String(m).padStart(2,"0") + ":" + String(ss).padStart(2,"0")
+    : m + ":" + String(ss).padStart(2,"0");
+}
+
+function render(){
+  const left = END - Date.now();
+  const clock = document.getElementById("clock");
+  setText(clock, fmt(left));
+  setClass(clock, "low", left <= 5*60000);
+  setText(document.getElementById("blockNum"), "#" + store.block);
+
+  const roster = people.slice(0, CONFIG.MAX_ROWS);
+
+  // headcount that drives the footer: real viewers when we have them
+  const hasViewers = YT.viewers != null;
+  setClass(document.body, "viewers", hasViewers);
+  setText(document.getElementById("kPeople"), "Clocked in");
+  if (hasViewers) setText(document.getElementById("sViewers"), YT.viewers.toLocaleString());
+  accumulateFocus(hasViewers ? YT.viewers : people.length);
+  setText(document.getElementById("sHours"), (store.focusMs/3600000).toFixed(1));
+
+  if (!people.length){
+    rowEls.forEach(el => el.remove());
+    rowEls.clear();
+    board.className = "empty";
+    board.innerHTML = (CONFIG.SHEET_ID && !API_KEY)
+      ? "<div><b>No API key yet</b>Paste your Google API key into<code>CONFIG.API_KEY</code></div>"
+      : "<div><b>What are you working on?</b>Clock in and claim your lane:<code>CLOCK IN: your goal</code></div>";
+    document.getElementById("roomFill").style.width = "0%";
+    document.getElementById("sPeople").textContent = "0";
+    document.getElementById("sShipped").textContent = "0";
+    return;
+  }
+  if (board.className !== "board"){ board.className = "board"; board.innerHTML = ""; }
+
+  // score everyone, then rank
+  const ranked = roster.map(p => {
+    const done = isDone(p.status);
+    return {
+      p: p,
+      done: done,
+      wins: p.shipped || 0,
+      pr: done ? 1 : progressFor(p.name, p.goal)
+    };
+  });
+  if (CONFIG.LEADERBOARD){
+    // Wins first, then current progress. Someone who just shipped and clocked
+    // in again would otherwise fall to dead last with a fresh 0% bar, seconds
+    // after doing the best thing anyone did all shift.
+    ranked.sort((a, b) =>
+      (b.wins - a.wins) || (b.pr - a.pr) || a.p.name.localeCompare(b.p.name));
+  }
+
+  // Room stats always count EVERYONE, not just whoever is on screen.
+  // SHIPPED counts GOALS, not people, so it can exceed the headcount.
+  let sum = 0, shipped = 0;
+  for (const s of ranked){
+    sum += s.pr;
+    shipped += s.wins;
+    if (s.done && s.wins === 0) shipped++;   // marked done, counter not yet written
+  }
+
+  // Fit the room: pick a density, and page through if it still will not fit
+  const plan = planFor(ranked.length);
+  applyRung(plan);
+
+  const pages = Math.max(1, Math.ceil(ranked.length / plan.perPage));
+  setRotation(pages > 1);
+  if (page >= pages) page = 0;
+  const scored = pages > 1
+    ? ranked.slice(page * plan.perPage, page * plan.perPage + plan.perPage)
+    : ranked;
+
+  // FLIP step 1: where is every existing row right now
+  const prevTop = new Map();
+  rowEls.forEach((el, name) => prevTop.set(name, el.getBoundingClientRect().top));
+
+  // update in place, creating only what is genuinely new
+  const seen = new Set();
+  scored.forEach((s, i) => {
+    const name = s.p.name;
+    seen.add(name);
+    let el = rowEls.get(name);
+
+    if (!el){
+      el = document.createElement("div");
+      el.className = "row";
+      el.innerHTML =
+        '<div class="row-top">' +
+          '<div class="rank"></div><div class="name"></div>' +
+          '<div class="badge"></div><div class="pct"></div>' +
+        '</div>' +
+        '<div class="goal"></div>' +
+        '<div class="track"><div class="fill"></div></div>';
+      el.classList.add("enter");
+      el.addEventListener("animationend", () => el.classList.remove("enter"), { once: true });
+      rowEls.set(name, el);
+      board.appendChild(el);
+      el.querySelector(".name").textContent = name;
+    }
+
+    const pctEl  = el.querySelector(".pct");
+    const badgeEl= el.querySelector(".badge");
+    const goalEl = el.querySelector(".goal");
+    const fillEl = el.querySelector(".fill");
+    const rankEl = el.querySelector(".rank");
+
+    // Only ever touch the DOM when a value actually changed. Writing the same
+    // value back still invalidates style and is what makes an overlay flicker.
+    const pctText = s.done ? "SHIPPED" : Math.round(s.pr*100) + "%";
+    if (pctEl.textContent !== pctText) pctEl.textContent = pctText;
+    setDisplay(pctEl, CONFIG.SHOW_PERCENT);
+
+    if (goalEl.textContent !== s.p.goal) goalEl.textContent = s.p.goal;
+    setDisplay(goalEl, !!s.p.goal);
+
+    const rankText = (CONFIG.LEADERBOARD && CONFIG.SHOW_RANK) ? String(i+1) : "";
+    if (rankEl.textContent !== rankText) rankEl.textContent = rankText;
+    setDisplay(rankEl, !!rankText);
+
+    // ✓N badge for goals banked earlier this shift. Suppressed on a row that
+    // is currently done with a single win, where "SHIPPED" already says it.
+    const showBadge = s.wins > 0 && !(s.done && s.wins <= 1);
+    const badgeText = showBadge ? "\u2713" + s.wins : "";
+    if (badgeEl.textContent !== badgeText) badgeEl.textContent = badgeText;
+    setDisplay(badgeEl, showBadge);
+
+    setClass(el, "done", s.done);
+    setClass(el, "lead", CONFIG.LEADERBOARD && i === 0 && !s.done);
+
+    const w = (s.pr*100).toFixed(1) + "%";
+    if (fillEl.style.width !== w) fillEl.style.width = w;
+  });
+
+  // drop anyone removed from the sheet
+  rowEls.forEach((el, name) => {
+    if (!seen.has(name)){ el.remove(); rowEls.delete(name); }
+  });
+
+  // page indicator always sits last
+  const wanted = scored.map(s => rowEls.get(s.p.name));
+  if (pages > 1){
+    if (!moreEl){ moreEl = document.createElement("div"); moreEl.className = "pager"; }
+    const t = (page + 1) + " / " + pages + "  ·  " + ranked.length + " CLOCKED IN";
+    if (moreEl.textContent !== t) moreEl.textContent = t;
+    wanted.push(moreEl);
+  } else if (moreEl && moreEl.parentNode){ moreEl.remove(); }
+
+  // Put the DOM in rank order by moving ONLY the nodes that are out of place.
+  // Re-appending a node that is already correct detaches and reattaches it,
+  // which restarts its CSS animations. That was the once-a-second flicker.
+  let ref = board.firstChild;
+  for (const el of wanted){
+    if (ref === el) ref = ref.nextSibling;
+    else board.insertBefore(el, ref);
+  }
+
+  // FLIP step 2: slide each row from where it was to where it now is
+  rowEls.forEach((el, name) => {
+    const was = prevTop.get(name);
+    if (was == null) return;                 // brand new row, let it fade in
+    const dy = was - el.getBoundingClientRect().top;
+    if (Math.abs(dy) < 1) return;
+    el.style.transition = "none";
+    el.style.transform = "translateY(" + dy + "px)";
+    requestAnimationFrame(() => {
+      el.style.transition = "transform .55s cubic-bezier(.22,.8,.3,1)";
+      el.style.transform = "";
+    });
+  });
+
+  const rw = ((sum/Math.max(1,ranked.length))*100).toFixed(1) + "%";
+  const roomFill = document.getElementById("roomFill");
+  if (roomFill.style.width !== rw) roomFill.style.width = rw;
+  setText(document.getElementById("sPeople"), String(people.length));
+  setText(document.getElementById("sShipped"), String(shipped));
+}
+
+/* ============================================================
+   6. Setup checker. Press D on the page, or open it with ?debug=1
+   ============================================================ */
+if (params.has("debug")) document.body.classList.add("diag");
+document.addEventListener("keydown", e => {
+  if (e.key === "d" || e.key === "D") document.body.classList.toggle("diag");
+});
+
+function line(state, label, detail, hint){
+  return '<div class="ln ' + state + '"><b>' + label + '</b>' +
+         (detail ? " " + esc(detail) : "") +
+         (hint ? '<span class="hint">' + hint + '</span>' : '') + '</div>';
+}
+
+function renderDiag(){
+  if (!document.body.classList.contains("diag")) return;
+  const key = API_KEY || "";
+  let h = "<h2>CLOCK IN OVERLAY : SETUP CHECK</h2>";
+
+  // 1. key present
+  h += key
+    ? line("ok", "API key", "found, " + key.length + " characters (" + window.__keySource + ")")
+    : line("no", "API key", "empty",
+        "Paste it into CONFIG.API_KEY at the very top of this file, or load the page once with ?key=... on the end.");
+
+  // 2. sheet
+  if (!DIAG.sheet) h += line("wait", "Goal sheet", "checking...");
+  else if (DIAG.sheet.ok) h += line("ok", "Goal sheet", DIAG.sheet.msg);
+  else {
+    const m = DIAG.sheet.msg || "";
+    let hint = "";
+    if (/has not been used|is disabled|SERVICE_DISABLED/i.test(m))
+      hint = "Enable <b>Google Sheets API</b> for this project in Cloud Console, then wait a minute and reload.";
+    else if (/API key not valid|API_KEY_INVALID|expired/i.test(m))
+      hint = "The key was mistyped, or it is restricted so it cannot be used here. Check API restrictions, and set Application restrictions to None.";
+    else if (/permission|caller does not have|PERMISSION_DENIED|403/i.test(m))
+      hint = "The sheet is not readable by link. Open it, Share, General access, Anyone with the link, Viewer.";
+    else if (/not found|404/i.test(m))
+      hint = "SHEET_ID does not match a sheet the key can see. Check it against the sheet URL.";
+    else if (/Failed to fetch|NetworkError/i.test(m))
+      hint = "No network reply at all. Check the machine is online.";
+    h += line("no", "Goal sheet", m, hint);
+  }
+
+  // 3. youtube
+  if (!DIAG.yt) h += line("wait", "YouTube viewers", "checking...");
+  else if (DIAG.yt.ok) h += line("ok", "YouTube viewers", DIAG.yt.msg);
+  else {
+    const m = DIAG.yt.msg || "";
+    let hint = "";
+    if (/has not been used|is disabled|SERVICE_DISABLED/i.test(m))
+      hint = "Enable <b>YouTube Data API v3</b> for this project in Cloud Console.";
+    else if (/API key not valid|API_KEY_INVALID/i.test(m))
+      hint = "Same key problem as above.";
+    else if (/quota|quotaExceeded/i.test(m))
+      hint = "Daily quota used up. It resets at midnight Pacific.";
+    else if (/hidden/i.test(m))
+      hint = "In YouTube Studio, on that broadcast, make the live viewer count visible.";
+    h += line("no", "YouTube viewers", m, hint);
+  }
+
+  // 4. config summary
+  h += '<div class="foot2">' +
+       "channel " + esc(CONFIG.YOUTUBE.CHANNEL_HANDLE) +
+       " &nbsp;|&nbsp; title match \"" + esc(CONFIG.YOUTUBE.TITLE_MATCH) + "\"" +
+       " &nbsp;|&nbsp; block " + (store.minutes || CONFIG.SESSION_MINUTES) + " min" +
+       "<br>sheet " + esc(CONFIG.SHEET_ID || CONFIG.SHEET_CSV_URL || "none") +
+       "<br><br>Press D to close. The stream never sees this panel unless you open it." +
+       "</div>";
+
+  document.getElementById("diag").innerHTML = h;
+}
+
+booted = true;
+render();
+renderDiag();
+setInterval(renderDiag, 1000);
+Promise.all([pull(), YT.poll()]).then(render);
+setInterval(render, 1000);
+setInterval(() => pull().then(render), CONFIG.POLL_SECONDS * 1000);
+setInterval(() => YT.poll().then(render), Math.max(20, CONFIG.YOUTUBE.REFRESH_SECONDS) * 1000);
+
+/* ============================================================
+   ONE API KEY POWERS BOTH THE SHEET AND THE VIEWER COUNT
+
+   1. console.cloud.google.com > create or pick a project
+   2. APIs & Services > Library > enable BOTH of these:
+        - YouTube Data API v3      (live viewer count)
+        - Google Sheets API        (the goal board)
+   3. APIs & Services > Credentials > Create credentials > API key
+   4. Edit that key > API restrictions > restrict it to those two APIs.
+      Leave application restrictions set to None: this runs from a local
+      file, so there is no referrer for Google to check.
+   5. Paste the key into CONFIG.API_KEY at the top of this file.
+      There is no on/off switch: a key present means it is on.
+
+   THE SHEET must be link-shared for the key to read it:
+   open it > Share > General access > "Anyone with the link" > Viewer.
+   Only people you invite can EDIT it. Reading is what needs to be open.
+   If you skip this the overlay shows the empty state, never an error.
+
+   IMPORTANT: YouTube only returns the number if the viewer count is
+   public on that broadcast. In YouTube Studio, on the live stream,
+   make sure the live viewer count is not hidden. If it is hidden the
+   API returns nothing and the overlay quietly falls back to counting
+   the goals on the board instead. No error shows on stream.
+
+   QUOTA: 10,000 units per day. Finding today's live video costs 100
+   units and happens once. Each viewer refresh costs 1 unit, so a
+   two hour block at 45 seconds is about 160 units. Not close to the cap.
+
+   FOCUS HOURS is now integrated over time: headcount multiplied by
+   elapsed seconds, accumulated across the whole block and saved, so
+   it keeps counting correctly through a refresh and reflects people
+   arriving and leaving.
+   ============================================================ */
+</script>
+</body>
+</html>

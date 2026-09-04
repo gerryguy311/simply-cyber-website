@@ -1,0 +1,9 @@
+# Simply Cyber — Cloudflare headers
+# Cloudflare _headers spec: https://developers.cloudflare.com/pages/configuration/headers/
+
+# ── Clock In overlay ──────────────────────────────────────────────────
+# Always serve the current version. OBS and the edge will both happily
+# hold a stale copy otherwise, so a push would not reach the stream.
+/clockin/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  X-Robots-Tag: noindex
